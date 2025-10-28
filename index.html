@@ -11,7 +11,7 @@
 <body>
     <header>
         <img src="Images/logo.png" alt="Logo Studio Insomnia" loading="lazy" class="logo" />
-        <nav>
+        <nav id="nav-menu" aria-hidden="true">
       <a href="#hero" class="active">Accueil</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#gallery">Galerie</a>
@@ -20,8 +20,8 @@
       <a href="#contact">Contact</a>
     </nav>
     <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
-  ☰
-</button>
+      ☰
+    </button>
 
   </header>
 
@@ -334,7 +334,7 @@
     });
   });
 
-  const menuToggle = document.getElementById('menu-toggle');
+const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 
 menuToggle.addEventListener('click', () => {
