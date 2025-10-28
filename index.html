@@ -216,66 +216,89 @@
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
-
   <script>
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const menuLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const menuLinks = document.querySelectorAll('nav a');
 
-
-      sections.forEach(section => {
-        const id = section.getAttribute('id');
-        const title = section.querySelector('h2');
-        if (title) {
-          const titleRect = title.getBoundingClientRect();
-          if (titleRect.top >= 0 && titleRect.top < 100) {
-            menuLinks.forEach(link => {
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            });
-          }
+    sections.forEach(section => {
+      const id = section.getAttribute('id');
+      const title = section.querySelector('h2');
+      if (title) {
+        const titleRect = title.getBoundingClientRect();
+        if (titleRect.top >= 0 && titleRect.top < 100) {
+          menuLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
         }
+      }
+    });
+  });
+
+  // Zoom images des membres
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.cursor = 'zoom-out';
+      overlay.style.zIndex = '10000';
+
+      const zoomImg = document.createElement('img');
+      zoomImg.src = img.src;
+      zoomImg.style.maxWidth = '90vw';
+      zoomImg.style.maxHeight = '90vh';
+      zoomImg.style.borderRadius = '12px';
+      zoomImg.style.boxShadow = '0 8px 40px rgba(0,0,0,0.9)';
+
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', () => {
+        overlay.remove();
       });
     });
+  });
 
+  // Gestion formulaire Formspree sans redirection
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche la soumission classique
 
-    // Zoom images des membres
-    document.querySelectorAll('.zoomable').forEach(img => {
-      img.addEventListener('click', () => {
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100vw';
-        overlay.style.height = '100vh';
-        overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.cursor = 'zoom-out';
-        overlay.style.zIndex = '10000';
+    const formData = new FormData(this);
 
-
-        const zoomImg = document.createElement('img');
-        zoomImg.src = img.src;
-        zoomImg.style.maxWidth = '90vw';
-        zoomImg.style.maxHeight = '90vh';
-        zoomImg.style.borderRadius = '12px';
-        zoomImg.style.boxShadow = '0 8px 40px rgba(0,0,0,0.9)';
-
-
-        overlay.appendChild(zoomImg);
-        document.body.appendChild(overlay);
-
-
-        overlay.addEventListener('click', () => {
-          overlay.remove();
+    fetch(this.action, {
+      method: this.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('form-message').textContent = "Merci pour votre message !";
+        this.reset();
+      } else {
+        response.json().then(data => {
+          if (data.errors) {
+            document.getElementById('form-message').textContent = data.errors.map(e => e.message).join(", ");
+          } else {
+            document.getElementById('form-message').textContent = "Erreur lors de l'envoi.";
+          }
         });
-      });
+      }
+    }).catch(() => {
+      document.getElementById('form-message').textContent = "Erreur réseau, veuillez réessayer.";
     });
-  </script>
+  });
+</script>
 </body>
 </html>
+
