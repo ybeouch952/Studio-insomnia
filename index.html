@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Insomnia - Accueil</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="Images/logo.png" alt="Logo Studio Insomnia" class="logo" />
+        <img src="Images/logo.png" alt="Logo Studio Insomnia" loading="lazy" class="logo" />
         <nav>
       <a href="#hero" class="active">Accueil</a>
       <a href="#tarifs">Tarifs</a>
@@ -19,18 +19,19 @@
       <a href="#apropos">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+  ☰
+</button>
+
   </header>
 
 
   <section id="hero" class="hero">
-    <img src="Images/photo-studio2.jpeg" alt="Studio Insomnia" class="hero-bg" />
+    <img src="Images/photo-studio2.jpeg" alt="Studio Insomnia" loading="lazy" class="hero-bg" />
     <div class="hero-content">
-      <h1>Insomnia - Studio de Musique à Boulogne-Billancourt</h1>
-      <p>
-        Enregistrement, mixage, mastering, production<br />
-        Matériel haut de gamme, confort et ambiance intimiste.<br />
-        Avec Maherito, votre musique prend vie dans un espace dédié à l’excellence.
-      </p>
+      <h1><span style="font-size: 2em; display: block;">Insomnia</span></h1>
+      <p style="font-size: 1.2em;">Studio d'enregistrement à Boulogne-Billancourt</p>
+      <p> Rec, mixage, mastering, production </p>
       <a href="#contact" class="cta-btn">Prendre contact</a>
     </div>
   </section>
@@ -41,7 +42,7 @@
     <div class="pricing">
       <div class="pricing-card">
         <h2>Enregistrement</h2>
-        <p class="price">50€ HT / 60€ TTC <span>*</span><br /><small>* ne concerne pas les sessions avec Maherito</small></p>
+        <small class="small-text">* ne concerne pas les sessions avec Maherito</small>
         <ul>
           <li>Minimum 2h de réservation</li>
           <li>Studio non fumeur</li>
@@ -77,20 +78,19 @@
     <h2>Galerie</h2>
     <div class="gallery-grid">
       <figure>
-        <img src="Images/photo1.jpeg" alt="Photo du studio" />
-        <figcaption>Photo du studio</figcaption>
+        <img src="Images/photo1.jpeg" alt="Photo du studio" loading="lazy" />
       </figure>
       <figure>
-        <img src="Images/photo2.jpeg" alt="Photo du micro et cabine" />
-        <figcaption>Photo du micro et cabine</figcaption>
+        <img src="Images/photo2.jpeg" alt="Photo du micro et cabine" loading="lazy" />
       </figure>
       <figure>
-        <img src="Images/photo3.jpeg" alt="Photo du PC en session de rec" />
-        <figcaption>Photo du PC en session de rec</figcaption>
+        <img src="Images/photo3.jpeg" alt="Photo du PC en session de rec" loading="lazy" />
       </figure>
       <figure>
-        <img src="Images/photo4.jpeg" alt="Photo de guitare" />
-        <figcaption>Photo de guitare</figcaption>
+        <img src="Images/photo4.jpeg" alt="Photo de guitare" loading="lazy" />
+      </figure>
+      <figure>
+        <img src="Images/canape.jpeg" alt="Canapé lounge" loading="lazy" />
       </figure>
     </div>
   </section>
@@ -98,51 +98,74 @@
 
   <section id="references">
     <h2>Ils nous font confiance</h2>
-    <p>Maher a collaboré avec de nombreux artistes français et internationaux reconnus et le studio a reçu plusieurs certifications Or, Platine et Diamant.</p>
 
+<div class="labels-grid">
+  <img src="Images/bluesky.webp" alt="Logo Blue Sky" title="Blue Sky" loading="lazy" />
+  <img src="Images/sonymusic.png" alt="Logo Sony Music" title="Sony Music" loading="lazy"/>
+  <img src="Images/universal.png" alt="Logo Universal" title="Universal" loading="lazy" />
+  <img src="Images/warner.png" alt="Logo Warner" title="Warner" loading="lazy"/>
+  <img src="Images/rec118.webp" alt="Logo Rec118" title="Rec118" loading="lazy"/>
+  <img src="Images/ad.png" alt="Logo ADA" title="ADA" loading="lazy" />
+</div>
 
-    <h3>Labels partenaires</h3>
-    <div class="labels-grid">
-      <img src="Images/bluesky.webp" alt="Logo Blue Sky" title="Blue Sky" />
-      <img src="Images/sonymusic.png" alt="Logo Sony Music" title="Sony Music" />
-      <img src="Images/universal.png" alt="Logo Universal" title="Universal" />
-      <img src="Images/warner.png" alt="Logo Warner" title="Warner" />
-      <img src="Images/rec118.webp" alt="Logo Rec118" title="Rec118" />
-      <img src="Images/ad.png" alt="Logo ADA" title="ADA" />
+<div class="artists-grid">
+  <figure>
+    <img src="Images/himra.jpg" alt="Himra" loading="lazy" />
+    <figcaption>Himra</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/kerchak.webp" alt="Kerchak" loading="lazy" />
+    <figcaption>Kerchak</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/dauzi.jpg" alt="Da Uzi" loading="lazy" />
+    <figcaption>Da Uzi</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/genezio.jpg" alt="Genezio" loading="lazy" />
+    <figcaption>Genezio</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/lamano.jpg" alt="La Mano" loading="lazy" />
+    <figcaption>La Mano</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/leostay.avif" alt="Leo Stay Trill" loading="lazy" />
+    <figcaption>Leo Stay Trill</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/mougli.jpg" alt="Mougli" loading="lazy" />
+    <figcaption>Mougli</figcaption>
+  </figure>
+</div>
+
+<p>Maher a collaboré avec de nombreux artistes français et internationaux reconnus et le studio a reçu plusieurs certifications :</p>
+
+<div class="certifications">
+  <div class="certif">
+    <img src="Images/disque-or.png" alt="Disque d'or" class="certif-icon or" />
+    <div class="certif-text">
+      <p><img src="Images/saison2-kerchak.jpg" alt="Saison 2 Kerchak" class="cover-small" /> Saison 2 Kerchak - Album</p>
+      <p><img src="Images/guy2bezbar-ambition.jpg" alt="Guy2bezbar Ambition" class="cover-small" /> Guy2bezbar - Ambition</p>
     </div>
+  </div>
 
-
-    <h3>Artistes</h3>
-    <div class="artists-grid">
-      <figure>
-        <img src="Images/himra.jpg" alt="Himra" />
-        <figcaption>Himra</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/kerchak.webp" alt="Kerchak" />
-        <figcaption>Kerchak</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/dauzi.jpg" alt="Da Uzi" />
-        <figcaption>Da Uzi</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/genezio.jpg" alt="Genezio" />
-        <figcaption>Genezio</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/lamano.jpg" alt="La Mano" />
-        <figcaption>La Mano</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/leostay.avif" alt="Leo Stay Trill" />
-        <figcaption>Leo Stay Trill</figcaption>
-      </figure>
-      <figure>
-        <img src="Images/mougli.jpg" alt="Mougli" />
-        <figcaption>Mougli</figcaption>
-      </figure>
+  <div class="certif">
+    <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
+    <div class="certif-text">
+      <p><img src="Images/saison2-kerchak.jpg" alt="Saison 2 Kerchak Single" class="cover-small" /> Saison 2 Kerchak - Single</p>
     </div>
+  </div>
+
+  <div class="certif">
+    <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
+    <div class="certif-text">
+      <p><img src="Images/jeune-et-riche-himra.jpg" alt="Jeune et riche Himra" class="cover-small" /> Jeune et riche - Himra</p>
+    </div>
+  </div>
+</div>
+
+
   </section>
 
 
@@ -159,26 +182,25 @@
     <p>Découvrez ma Discographie sur Spotify. </p>
     <div class="spotify-container">
       <iframe src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      <a href="https://open.spotify.com/playlist/36tkMon2P1CIW7WusHZX9Q" target="_blank" class="cta-btn spotify-btn">Voir la playlist MusoAI sur Spotify</a>
     </div>
 
 
     <h3>L'équipe</h3>
     <div class="team-grid">
       <div class="team-member">
-        <img src="Images/maherito.jpg" alt="Maherito" class="zoomable" />
+        <img src="Images/maherito.jpg" alt="Maherito" class="zoomable" loading="lazy" />
         <h4>Maherito</h4>
         <p>Ingénieur du son & Fondateur</p>
       </div>
       <div class="team-member">
-        <img src="Images/nida.jpg" alt="Membre 2" class="zoomable" />
+        <img src="Images/nida.jpg" alt="Membre 2" class="zoomable" loading="lazy" />
         <h4>Nida</h4>
         <p> Compositeur </p>
       </div>
       <div class="team-member">
-        <img src="Images/leJ.jpg" alt="Membre 3" class="zoomable" />
+        <img src="Images/leJ.jpg" alt="Membre 3" class="zoomable" loading="lazy" />
         <h4> le J </h4>
-        <p>Compositeur et Ingénieur du son</p>
+        <p>Compositeur & Ingénieur du son</p>
       </div>
     </div>
   </section>
@@ -211,33 +233,46 @@
 
   <footer>
     <div>
-      <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank"><img src="Images/ig-icon.png" alt="Instagram" /></a>
+      <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank"><img src="Images/ig-icon.png" alt="Instagram" loading="lazy" /></a>
     </div>
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
   <script>
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const menuLinks = document.querySelectorAll('nav a');
 
-    sections.forEach(section => {
-      const id = section.getAttribute('id');
-      const title = section.querySelector('h2');
-      if (title) {
-        const titleRect = title.getBoundingClientRect();
-        if (titleRect.top >= 0 && titleRect.top < 100) {
-          menuLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
+    window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  const menuLinks = document.querySelectorAll('nav a');
+
+  if(window.scrollY === 0) {
+    menuLinks.forEach(link => {
+      if(link.getAttribute('href') === '#home') {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
+    return;
+  }
+
+  sections.forEach(section => {
+    const id = section.getAttribute('id');
+    const title = section.querySelector('h2');
+    if(title) {
+      const titleRect = title.getBoundingClientRect();
+      if(titleRect.top >= 0 && titleRect.top < 100) {
+        menuLinks.forEach(link => {
+          if(link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    }
   });
+});
+
 
   // Zoom images des membres
   document.querySelectorAll('.zoomable').forEach(img => {
@@ -298,6 +333,16 @@
       document.getElementById('form-message').textContent = "Erreur réseau, veuillez réessayer.";
     });
   });
+
+  const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+  menuToggle.setAttribute('aria-expanded', !expanded);
+  navMenu.setAttribute('aria-hidden', expanded);
+});
+
 </script>
 </body>
 </html>

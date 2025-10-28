@@ -99,3 +99,73 @@ h3 {
   color: #ddd;
   margin: 4px 0;
 }
+
+.small-text {
+  font-size: 0.8em;
+}
+
+
+
+
+.certifications {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.certif {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 220px;
+  color: #aaa;
+  text-align: center;
+}
+
+
+
+.certif-text p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  margin: 6px 0;
+  justify-content: center;
+}
+
+
+
+
+.cover-small {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
+.certif-icon {
+  height: 90px; /* taille du disque de platine, la référence */
+  width: auto;  /* largeur proportionnelle */
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.7));
+}
+
+/* Spécifique au disque or et diamant pour les rendre un peu plus larges */
+.certif-icon.or {
+  height: 90px;   /* légèrement plus grand en hauteur */
+  width: auto;
+}
+
+.certif-icon.diamant {
+    height: 95px;   /* légèrement plus grand en hauteur */
+  width: auto;
+}
+
+.spotify-container iframe {
+  width: 110%;
+  max-width: 1300px;
+}
