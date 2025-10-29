@@ -1,43 +1,155 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Insomnia - Accueil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/tarifs.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Insomnia - Accueil</title>
+
+  <!-- Perf: preconnect + Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tarifs.css" />
 </head>
 <body>
-    <header>
-        <img src="Images/logo.png" alt="Logo Studio Insomnia" loading="lazy" class="logo" />
-        <nav id="nav-menu" aria-hidden="true">
-      <a href="#hero" class="active">Accueil</a>
-      <a href="#tarifs">Tarifs</a>
+  <header role="banner">
+    <img src="Images/logo.png" alt="Logo Studio Insomnia" class="logo" decoding="async" fetchpriority="high" />
+    <nav id="nav-menu" aria-label="Navigation principale" aria-hidden="true">
+      <a href="#apropos" class="active">À propos</a>
       <a href="#gallery">Galerie</a>
-      <a href="#references">Références</a>
-      <a href="#apropos">À propos</a>
+      <a href="#discographie">Discographie</a>
+      <a href="#references">Réferences</a>
+      <a href="#equipe">L'équipe</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
       ☰
     </button>
-
   </header>
 
-
-  <section id="hero" class="hero">
-    <img src="Images/photo-studio2.jpeg" alt="Studio Insomnia" loading="lazy" class="hero-bg" />
+  <!-- Héro conservé visuellement identique -->
+  <section id="hero" class="hero" aria-label="Présentation">
+    <img src="Images/photo-studio2.jpeg" alt="" loading="eager" fetchpriority="high" class="hero-bg" />
     <div class="hero-content">
       <h1><span style="font-size: 2em; display: block;">Insomnia</span></h1>
       <p style="font-size: 1.2em;">Studio d'enregistrement à Boulogne-Billancourt</p>
-      <p> Rec, mixage, mastering, production </p>
+      <p>Rec, mixage, mastering, production</p>
       <a href="#contact" class="cta-btn">Prendre contact</a>
     </div>
   </section>
 
+  <!-- 1) À propos -->
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p>
+      Insomnia est un studio professionnel à Boulogne-Billancourt, spécialisé en enregistrement, mixage, mastering et production.
+      Fondé en 2023 par l’ingénieur du son Maherito, le studio allie confort, équipements haut de gamme et atmosphère intimiste pour des prises de son soignées dans un cadre moderne et inspirant.
+      Nous accompagnons chaque projet avec exigence pour un résultat professionnel.
+    </p>
+  </section>
 
-  <section id="tarifs">
+  <!-- 2) Galerie -->
+  <section id="gallery" aria-label="Galerie">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+      <figure><img src="Images/photo1.jpeg" alt="Vue du studio" loading="lazy" decoding="async" /></figure>
+      <figure><img src="Images/photo2.jpeg" alt="Micro et cabine" loading="lazy" decoding="async" /></figure>
+      <figure><img src="Images/photo3.jpeg" alt="Session d’enregistrement" loading="lazy" decoding="async" /></figure>
+      <figure><img src="Images/photo4.jpeg" alt="Guitare du studio" loading="lazy" decoding="async" /></figure>
+      <figure><img src="Images/canape.jpeg" alt="Coin lounge" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <!-- 3) Discographie -->
+  <section id="discographie" aria-label="Discographie">
+    <h2>Discographie</h2>
+    <p>Découvrez notre discographie sur Spotify.</p>
+    <div class="spotify-container">
+      <iframe title="Playlist Spotify" src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
+              width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
+    </div>
+  </section>
+
+  <!-- 4) references (Or/Platine/Diamant) -->
+  <section id="references" aria-label="references">
+    <h2>Ils nous font confiance</h2>
+
+    <div class="labels-grid" aria-label="Labels partenaires">
+      <img src="Images/bluesky.webp" alt="Blue Sky" loading="lazy" decoding="async" />
+      <img src="Images/sonymusic.png" alt="Sony Music" loading="lazy" decoding="async" />
+      <img src="Images/universal.png" alt="Universal" loading="lazy" decoding="async" />
+      <img src="Images/warner.png" alt="Warner" loading="lazy" decoding="async" />
+      <img src="Images/rec118.webp" alt="Rec118" loading="lazy" decoding="async" />
+      <img src="Images/ad.png" alt="ADA" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="artists-grid" aria-label="Artistes">
+      <figure><img src="Images/himra.jpg" alt="Himra" loading="lazy" decoding="async" /><figcaption>Himra</figcaption></figure>
+      <figure><img src="Images/kerchak.webp" alt="Kerchak" loading="lazy" decoding="async" /><figcaption>Kerchak</figcaption></figure>
+      <figure><img src="Images/dauzi.jpg" alt="Da Uzi" loading="lazy" decoding="async" /><figcaption>Da Uzi</figcaption></figure>
+      <figure><img src="Images/genezio.jpg" alt="Genezio" loading="lazy" decoding="async" /><figcaption>Genezio</figcaption></figure>
+      <figure><img src="Images/lamano.jpg" alt="La Mano" loading="lazy" decoding="async" /><figcaption>La Mano</figcaption></figure>
+      <figure><img src="Images/leostay.avif" alt="Leo Stay Trill" loading="lazy" decoding="async" /><figcaption>Leo Stay Trill</figcaption></figure>
+      <figure><img src="Images/mougli.jpg" alt="Mougli" loading="lazy" decoding="async" /><figcaption>Mougli</figcaption></figure>
+    </div>
+
+    <p>Maher a collaboré avec de nombreux artistes français et internationaux reconnus et le studio a reçu plusieurs certifications :</p>
+
+    <div class="certifications">
+      <div class="certif">
+        <img src="Images/disque-or.png" alt="Disque d'or" class="certif-icon or" />
+        <div class="certif-text">
+          <strong>Or</strong>
+          <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" /> Saison 2 Kerchak - Album</p>
+          <p><img src="Images/guy2bezbar-ambition.jpg" alt="" class="cover-small" /> Guy2bezbar - Ambition</p>
+        </div>
+      </div>
+
+      <div class="certif">
+        <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
+        <div class="certif-text">
+          <strong>Platine</strong>
+          <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" /> Saison 2 Kerchak - Single</p>
+        </div>
+      </div>
+
+      <div class="certif">
+        <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
+        <div class="certif-text">
+          <strong>Diamant</strong>
+          <p><img src="Images/jeune-et-riche-himra.jpg" alt="" class="cover-small" /> Jeune et riche - Himra</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5) L'équipe -->
+  <section id="equipe" aria-label="L'équipe">
+    <h2>L'équipe</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="Images/maherito.jpg" alt="Maherito" class="zoomable" loading="lazy" decoding="async" />
+        <h4>Maherito</h4>
+        <p>Ingénieur du son &amp; Fondateur</p>
+      </div>
+      <div class="team-member">
+        <img src="Images/nida.jpg" alt="Nida" class="zoomable" loading="lazy" decoding="async" />
+        <h4>Nida</h4>
+        <p>Compositeur</p>
+      </div>
+      <div class="team-member">
+        <img src="Images/leJ.jpg" alt="le J" class="zoomable" loading="lazy" decoding="async" />
+        <h4>le J</h4>
+        <p>Compositeur &amp; Ingénieur du son</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) Tarifs -->
+  <section id="tarifs" aria-label="Tarifs">
     <h2>Nos Tarifs Studio</h2>
     <div class="pricing">
       <div class="pricing-card">
@@ -50,21 +162,15 @@
           <li>Le retard n'est pas rattrapé</li>
         </ul>
       </div>
-
-
       <div class="pricing-card">
         <h2>Mixage</h2>
         <p class="price">350€ HT <span>par titre</span></p>
         <p class="price small">250€ HT <span>par titre si enregistré au studio</span></p>
       </div>
-
-
       <div class="pricing-card">
         <h2>Mastering</h2>
         <p class="price">50€ HT</p>
       </div>
-
-
       <div class="pricing-card contact-us">
         <h2>Production</h2>
         <p class="contact-text">Nous contacter pour un devis personnalisé</p>
@@ -73,143 +179,11 @@
     </div>
   </section>
 
-
-  <section id="gallery">
-    <h2>Galerie</h2>
-    <div class="gallery-grid">
-      <figure>
-        <img src="Images/photo1.jpeg" alt="Photo du studio" loading="lazy" />
-      </figure>
-      <figure>
-        <img src="Images/photo2.jpeg" alt="Photo du micro et cabine" loading="lazy" />
-      </figure>
-      <figure>
-        <img src="Images/photo3.jpeg" alt="Photo du PC en session de rec" loading="lazy" />
-      </figure>
-      <figure>
-        <img src="Images/photo4.jpeg" alt="Photo de guitare" loading="lazy" />
-      </figure>
-      <figure>
-        <img src="Images/canape.jpeg" alt="Canapé lounge" loading="lazy" />
-      </figure>
-    </div>
-  </section>
-
-
-  <section id="references">
-    <h2>Ils nous font confiance</h2>
-
-<div class="labels-grid">
-  <img src="Images/bluesky.webp" alt="Logo Blue Sky" title="Blue Sky" loading="lazy" />
-  <img src="Images/sonymusic.png" alt="Logo Sony Music" title="Sony Music" loading="lazy"/>
-  <img src="Images/universal.png" alt="Logo Universal" title="Universal" loading="lazy" />
-  <img src="Images/warner.png" alt="Logo Warner" title="Warner" loading="lazy"/>
-  <img src="Images/rec118.webp" alt="Logo Rec118" title="Rec118" loading="lazy"/>
-  <img src="Images/ad.png" alt="Logo ADA" title="ADA" loading="lazy" />
-</div>
-
-<div class="artists-grid">
-  <figure>
-    <img src="Images/himra.jpg" alt="Himra" loading="lazy" />
-    <figcaption>Himra</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/kerchak.webp" alt="Kerchak" loading="lazy" />
-    <figcaption>Kerchak</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/dauzi.jpg" alt="Da Uzi" loading="lazy" />
-    <figcaption>Da Uzi</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/genezio.jpg" alt="Genezio" loading="lazy" />
-    <figcaption>Genezio</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/lamano.jpg" alt="La Mano" loading="lazy" />
-    <figcaption>La Mano</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/leostay.avif" alt="Leo Stay Trill" loading="lazy" />
-    <figcaption>Leo Stay Trill</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/mougli.jpg" alt="Mougli" loading="lazy" />
-    <figcaption>Mougli</figcaption>
-  </figure>
-</div>
-
-<p>Maher a collaboré avec de nombreux artistes français et internationaux reconnus et le studio a reçu plusieurs certifications :</p>
-
-<div class="certifications">
-  <div class="certif">
-    <img src="Images/disque-or.png" alt="Disque d'or" class="certif-icon or" />
-    <div class="certif-text">
-      <p><img src="Images/saison2-kerchak.jpg" alt="Saison 2 Kerchak" class="cover-small" /> Saison 2 Kerchak - Album</p>
-      <p><img src="Images/guy2bezbar-ambition.jpg" alt="Guy2bezbar Ambition" class="cover-small" /> Guy2bezbar - Ambition</p>
-    </div>
-  </div>
-
-  <div class="certif">
-    <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
-    <div class="certif-text">
-      <p><img src="Images/saison2-kerchak.jpg" alt="Saison 2 Kerchak Single" class="cover-small" /> Saison 2 Kerchak - Single</p>
-    </div>
-  </div>
-
-  <div class="certif">
-    <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
-    <div class="certif-text">
-      <p><img src="Images/jeune-et-riche-himra.jpg" alt="Jeune et riche Himra" class="cover-small" /> Jeune et riche - Himra</p>
-    </div>
-  </div>
-</div>
-
-
-  </section>
-
-
-  <section id="apropos">
-    <h2>À propos</h2>
-    <p>
-      Insomnia est un studio professionnel idéalement situé à Boulogne-Billancourt, près du 16e arrondissement de Paris.Il est spécialisé dans l’enregistrement, le mixage, le mastering et la production.
-      Fondé en 2023 par l’ingénieur du son Maherito, Insomnia se distingue par son confort, ses équipements haut de gamme et son atmosphère intimiste, conçus pour offrir une qualité d’enregistrement exceptionnelle dans un environnement moderne et inspirant.
-      Le studio accompagne ses clients avec passion et précision, garantissant un résultat soigné et professionnel, adapté à chaque projet musical.
-    </p>
-
-
-    <h3>Discographie</h3>
-    <p>Découvrez ma Discographie sur Spotify. </p>
-    <div class="spotify-container">
-      <iframe src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    </div>
-
-
-    <h3>L'équipe</h3>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="Images/maherito.jpg" alt="Maherito" class="zoomable" loading="lazy" />
-        <h4>Maherito</h4>
-        <p>Ingénieur du son & Fondateur</p>
-      </div>
-      <div class="team-member">
-        <img src="Images/nida.jpg" alt="Membre 2" class="zoomable" loading="lazy" />
-        <h4>Nida</h4>
-        <p> Compositeur </p>
-      </div>
-      <div class="team-member">
-        <img src="Images/leJ.jpg" alt="Membre 3" class="zoomable" loading="lazy" />
-        <h4> le J </h4>
-        <p>Compositeur & Ingénieur du son</p>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="contact" class="contact-info">
+  <!-- 7) Contact -->
+  <section id="contact" class="contact-info" aria-label="Contact">
     <h2>Contact</h2>
-    <p>Envoyez votre message ou contactez-nous directement via :</p>
-    <form id="contact-form" class="styled-form" action="https://formspree.io/f/xnnoplkl" method="POST">
+
+    <form id="contact-form" class="styled-form" action="https://formspree.io/f/xnnoplkl" method="POST" novalidate>
       <div class="form-group">
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" placeholder="Votre nom" required />
@@ -223,127 +197,101 @@
         <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
       </div>
       <button type="submit" class="styled-btn">Envoyer</button>
+      <!-- Ajouté : cible pour les messages Formspree -->
+      <p id="form-message" role="status" aria-live="polite"></p>
     </form>
-    <div class="contacts-buttons">
-      <a href="tel:+33603818567" class="contact-btn">SMS / Whatsapp</a>
+
+    <div class="contacts-buttons" aria-label="Moyens de contact rapides">
+      <a href="tel:+33603818567" class="contact-btn">SMS / WhatsApp</a>
       <a href="mailto:maherito.engineer@gmail.com" class="contact-btn">Email</a>
     </div>
   </section>
 
-
   <footer>
     <div>
-      <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank"><img src="Images/ig-icon.png" alt="Instagram" loading="lazy" /></a>
+      <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank" rel="noopener">
+        <img src="Images/ig-icon.png" alt="Instagram" loading="lazy" decoding="async" />
+      </a>
     </div>
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
-  <script>
-
+  <!-- JS: defer + petits correctifs -->
+  <script defer>
+    // Scroll spy affiné
     window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const menuLinks = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('section[id]');
+      const menuLinks = document.querySelectorAll('nav a');
 
-  if(window.scrollY === 0) {
-    menuLinks.forEach(link => {
-      if(link.getAttribute('href') === '#home') {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-    return;
-  }
-
-  sections.forEach(section => {
-    const id = section.getAttribute('id');
-    const title = section.querySelector('h2');
-    if(title) {
-      const titleRect = title.getBoundingClientRect();
-      if(titleRect.top >= 0 && titleRect.top < 100) {
+      if (window.scrollY === 0) {
         menuLinks.forEach(link => {
-          if(link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
+          link.classList.toggle('active', link.getAttribute('href') === '#apropos');
         });
+        return;
       }
-    }
-  });
-});
 
-
-  // Zoom images des membres
-  document.querySelectorAll('.zoomable').forEach(img => {
-    img.addEventListener('click', () => {
-      const overlay = document.createElement('div');
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.width = '100vw';
-      overlay.style.height = '100vh';
-      overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-      overlay.style.display = 'flex';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      overlay.style.cursor = 'zoom-out';
-      overlay.style.zIndex = '10000';
-
-      const zoomImg = document.createElement('img');
-      zoomImg.src = img.src;
-      zoomImg.style.maxWidth = '90vw';
-      zoomImg.style.maxHeight = '90vh';
-      zoomImg.style.borderRadius = '12px';
-      zoomImg.style.boxShadow = '0 8px 40px rgba(0,0,0,0.9)';
-
-      overlay.appendChild(zoomImg);
-      document.body.appendChild(overlay);
-
-      overlay.addEventListener('click', () => {
-        overlay.remove();
+      sections.forEach(section => {
+        const id = section.getAttribute('id');
+        const title = section.querySelector('h2');
+        if (title) {
+          const titleRect = title.getBoundingClientRect();
+          if (titleRect.top >= 0 && titleRect.top < 100) {
+            menuLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        }
       });
     });
-  });
 
-  // Gestion formulaire Formspree sans redirection
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêche la soumission classique
-
-    const formData = new FormData(this);
-
-    fetch(this.action, {
-      method: this.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        document.getElementById('form-message').textContent = "Merci pour votre message !";
-        this.reset();
-      } else {
-        response.json().then(data => {
-          if (data.errors) {
-            document.getElementById('form-message').textContent = data.errors.map(e => e.message).join(", ");
-          } else {
-            document.getElementById('form-message').textContent = "Erreur lors de l'envoi.";
-          }
-        });
-      }
-    }).catch(() => {
-      document.getElementById('form-message').textContent = "Erreur réseau, veuillez réessayer.";
+    // Zoom images des membres
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+          position:fixed;inset:0;background:rgba(0,0,0,.8);
+          display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:10000
+        `;
+        const zoomImg = document.createElement('img');
+        zoomImg.src = img.src;
+        zoomImg.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.9)';
+        overlay.appendChild(zoomImg);
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', () => overlay.remove());
+      });
     });
-  });
 
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
+    // Formspree AJAX (ajout de #form-message dans le DOM)
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      fetch(this.action, {
+        method: this.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        const target = document.getElementById('form-message');
+        if (response.ok) {
+          target.textContent = "Merci pour votre message !";
+          this.reset();
+        } else {
+          response.json().then(data => {
+            target.textContent = data?.errors ? data.errors.map(e => e.message).join(", ") : "Erreur lors de l'envoi.";
+          });
+        }
+      }).catch(() => {
+        document.getElementById('form-message').textContent = "Erreur réseau, veuillez réessayer.";
+      });
+    });
 
-menuToggle.addEventListener('click', () => {
-  const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-  menuToggle.setAttribute('aria-expanded', !expanded);
-  navMenu.setAttribute('aria-hidden', expanded);
-});
-
-</script>
+    // Menu mobile accessible
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      menuToggle.setAttribute('aria-expanded', !expanded);
+      navMenu.setAttribute('aria-hidden', expanded);
+    });
+  </script>
 </body>
 </html>
-
