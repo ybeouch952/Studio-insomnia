@@ -10,6 +10,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
 
+  <!-- Perf: images -->
+  <link rel="preload" as="image" href="Images/photo-studio2.jpeg" fetchpriority="high">
+
+  <!-- Spotify: perf + robustesse -->
+  <link rel="dns-prefetch" href="https://open.spotify.com">
+  <link rel="preconnect" href="https://open.spotify.com" crossorigin>
+  <link rel="preconnect" href="https://i.scdn.co" crossorigin>
+
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/tarifs.css" />
 </head>
@@ -20,7 +28,7 @@
       <a href="#apropos" class="active">À propos</a>
       <a href="#gallery">Galerie</a>
       <a href="#discographie">Discographie</a>
-      <a href="#references">Réferences</a>
+      <a href="#references">Références</a>
       <a href="#equipe">L'équipe</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
@@ -30,9 +38,17 @@
     </button>
   </header>
 
-  <!-- Héro conservé visuellement identique -->
+  <!-- Héro -->
   <section id="hero" class="hero" aria-label="Présentation">
-    <img src="Images/photo-studio2.jpeg" alt="" loading="eager" fetchpriority="high" class="hero-bg" />
+    <img
+      src="Images/photo-studio2.jpeg"
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+      class="hero-bg"
+      width="1920" height="800"
+      decoding="async"
+    />
     <div class="hero-content">
       <h1><span style="font-size: 2em; display: block;">Insomnia</span></h1>
       <p style="font-size: 1.2em;">Studio d'enregistrement à Boulogne-Billancourt</p>
@@ -67,14 +83,32 @@
   <section id="discographie" aria-label="Discographie">
     <h2>Discographie</h2>
     <p>Découvrez notre discographie sur Spotify.</p>
+
     <div class="spotify-container">
-      <iframe title="Playlist Spotify" src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
-              width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
+      <!-- wrapper ratio + ombre (évite CLS) -->
+      <div class="spotify-embed-wrap">
+        <iframe
+          id="spotify-embed"
+          title="Playlist Spotify"
+          src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
+          loading="lazy"
+          allow="encrypted-media"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <!-- Fallback si l’iframe tarde ou échoue -->
+      <div id="spotify-fallback" class="spotify-fallback" hidden>
+        <p>La playlist met du temps à charger.</p>
+        <a class="spotify-btn" target="_blank" rel="noopener"
+           href="https://open.spotify.com/playlist/36tkMon2P1CIW7WusHZX9Q">Ouvrir dans Spotify</a>
+        <button id="spotify-retry" class="styled-btn" type="button">Réessayer</button>
+      </div>
     </div>
   </section>
 
-  <!-- 4) references (Or/Platine/Diamant) -->
-  <section id="references" aria-label="references">
+  <!-- 4) Références (Or/Platine/Diamant) -->
+  <section id="references" aria-label="Références">
     <h2>Ils nous font confiance</h2>
 
     <div class="labels-grid" aria-label="Labels partenaires">
@@ -197,7 +231,6 @@
         <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
       </div>
       <button type="submit" class="styled-btn">Envoyer</button>
-      <!-- Ajouté : cible pour les messages Formspree -->
       <p id="form-message" role="status" aria-live="polite"></p>
     </form>
 
@@ -216,7 +249,7 @@
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
-  <!-- JS: defer + petits correctifs -->
+  <!-- JS: defer + correctifs + Spotify robustesse -->
   <script defer>
     // Scroll spy affiné
     window.addEventListener('scroll', () => {
@@ -261,7 +294,7 @@
       });
     });
 
-    // Formspree AJAX (ajout de #form-message dans le DOM)
+    // Formspree AJAX
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
       const formData = new FormData(this);
@@ -292,6 +325,38 @@
       menuToggle.setAttribute('aria-expanded', !expanded);
       navMenu.setAttribute('aria-hidden', expanded);
     });
+
+    // --- Robustesse Spotify ---
+    (function(){
+      const iframe = document.getElementById('spotify-embed');
+      if(!iframe) return;
+
+      const fallback = document.getElementById('spotify-fallback');
+      const retryBtn = document.getElementById('spotify-retry');
+
+      let loaded = false;
+      iframe.addEventListener('load', () => {
+        loaded = true;
+        if (fallback) fallback.hidden = true;
+      });
+
+      // Affiche le fallback si ça ne charge pas en 6s
+      setTimeout(() => {
+        if (!loaded && fallback) fallback.hidden = false;
+      }, 6000);
+
+      // Réessayer: on relance la source
+      if (retryBtn) {
+        retryBtn.addEventListener('click', () => {
+          loaded = false;
+          fallback.hidden = true;
+          const src = iframe.getAttribute('src') || '';
+          iframe.setAttribute('src', 'about:blank');
+          setTimeout(() => iframe.setAttribute('src', src), 50);
+          setTimeout(() => { if (!loaded && fallback) fallback.hidden = false; }, 6000);
+        });
+      }
+    })();
   </script>
 </body>
 </html>

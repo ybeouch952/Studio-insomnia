@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap');
+/* Polices déjà chargées via <link> dans le HTML — @import supprimé pour éviter le double chargement */
 
 :root{
   --header-h: 88px; /* hauteur header desktop */
@@ -6,6 +6,8 @@
 }
 
 *{ box-sizing: border-box; }
+
+html, body { overflow-x: hidden; } /* sécurité anti-scroll horizontal */
 
 body {
   margin: 0;
@@ -45,25 +47,23 @@ nav a {
 }
 nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff; }
 
-
-
 /* --- HERO --- */
 .hero {
   position: relative;
   width: 100%;
-  height: 600px; /* conserve ta hauteur actuelle */
+  /* hauteur gérée par section.hero pour éviter le doublon */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 0; /* supprime toute marge autour */
+  margin: 0;
   padding: 0;
 }
 
 .hero-bg {
   position: absolute;
   top: 0; left: 0;
-  width: 100vw; /* prend toute la largeur de la fenêtre */
+  width: 100vw; /* toute la largeur de la fenêtre */
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -84,7 +84,7 @@ nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff;
 .hero-content h1 {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 3.2em;
-  margin-bottom: 8px; /* ↓ espace réduit */
+  margin-bottom: 8px; /* espace réduit */
   line-height: 1.2;
 }
 
@@ -92,27 +92,20 @@ nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff;
   font-size: 1.25em;
   line-height: 1.3;
   font-weight: 400;
-  margin-bottom: 14px; /* ↓ espace entre les deux lignes réduit */
+  margin-bottom: 14px; /* espace réduit */
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* --- Mobile --- */
 @media (max-width: 600px) {
   .hero {
-    height: 400px; /* un peu plus compact sur mobile */
+    min-height: 420px;
+    padding: 40px 16px;
   }
 
-  .hero-content h1 {
-    font-size: 2.2em;
-  }
-
-  .hero-content p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-  }
+  .hero-content h1 { font-size: 2.2em; }
+  .hero-content p  { font-size: 1.05em; }
 }
-
-
 
 /* CTA */
 .cta-btn {
@@ -152,7 +145,30 @@ h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: 2.5em; margin-bott
 
 /* Spotify */
 .spotify-container{ display:flex; align-items:center; justify-content:center; gap:20px; margin:20px 0 40px; }
-.spotify-container iframe{ border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.8); }
+/* wrapper ratio pour éviter le saut de layout */
+.spotify-embed-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 300 / 380; /* ratio de l'embed d'origine */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.8);
+}
+.spotify-embed-wrap iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+/* Fallback "retry" */
+.spotify-fallback {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  margin-top: 10px;
+  text-align: center;
+}
+.spotify-fallback p { margin: 0 0 6px; }
 
 /* Team */
 .team-grid { display:flex; justify-content:center; gap:40px; flex-wrap: wrap; margin-top:20px; }
@@ -224,39 +240,32 @@ nav a:focus, button:focus{ outline:3px solid #7fb0ff; outline-offset:3px; }
 
 /* Ciblage accessibilité tactile */
 button, .styled-btn, .cta-btn, .contact-btn{
-  min-height: 44px; /* réduit par rapport à 48px pour éviter "gros" sur mobile */
+  min-height: 44px;
   touch-action: manipulation;
 }
 
 /* Petites utilitaires */
 .small-text{ font-size: .85em; color: #aaa; }
 
-
 /* === HERO full-bleed & centré (override de la règle section) === */
 section.hero{
-  /* annule la contrainte de la règle "section" */
   max-width: none;
   width: 100%;
-  margin: 0;
-  padding: 0;
-
+  margin: 0; padding: 0;
   position: relative;
-  height: 600px;             /* conserve la hauteur "bandeau" */
+  height: 600px;  /* bandeau */
   overflow: hidden;
 }
 
-/* image centrée et couvrante, sans décalage à gauche */
 section.hero .hero-bg{
   position: absolute;
-  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;         /* remplit toute la largeur */
-  object-position: center;   /* centrée comme initialement */
-  filter: brightness(0.55);  /* comme avant */
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.55);
 }
 
-/* contenu centré, espaces resserrés entre les 2 lignes */
 section.hero .hero-content{
   position: relative;
   z-index: 2;
@@ -266,26 +275,9 @@ section.hero .hero-content{
   text-align: center;
 }
 
-section.hero .hero-content h1{
-  margin-bottom: 8px;        /* ↓ espace sous le titre */
-  line-height: 1.2;
-}
-
-section.hero .hero-content p{
-  margin: 6px 0;             /* ↓ espaces plus petits */
-  line-height: 1.35;
-}
-section.hero .hero-content p + p{
-  margin-top: 4px;           /* espace très serré entre les 2 phrases */
-}
-
-/* Mobile : un peu plus compact mais toujours centré et full-width */
-@media (max-width: 600px){
-  section.hero{ height: 420px; }
-  section.hero .hero-content h1{ font-size: 2.2em; }
-  section.hero .hero-content p{ font-size: 1.05em; }
-}
-
+section.hero .hero-content h1{ margin-bottom: 8px; line-height: 1.2; }
+section.hero .hero-content p{ margin: 6px 0; line-height: 1.35; }
+section.hero .hero-content p + p{ margin-top: 4px; }
 
 /* ===== 1) Espacement entre sections (desktop) ===== */
 @media (min-width: 768px) {
@@ -295,7 +287,6 @@ section.hero .hero-content p + p{
     margin: 0 auto 44px;
   }
 }
-/* Sur mobile on garde tes valeurs actuelles, déjà compactes. */
 
 /* ===== 2) Artistes: 2 lignes équilibrées sur grand écran ===== */
 @media (min-width: 1024px) {
@@ -306,28 +297,27 @@ section.hero .hero-content p + p{
   }
 }
 
-
 /* ===== 3) Phrase "Maher a collaboré..." plus visible ===== */
-#certifications > p {
+#certifications > p,
+#references > p {
   font-size: 1.18em;   /* léger boost */
   font-weight: 700;    /* gras demandé */
   text-align: center;
   margin: 18px auto 10px;
-  max-width: 920px;    /* limite la longueur pour le confort de lecture */
+  max-width: 920px;    /* largeur confortable */
 }
 
-
-/* ===== 4) Lisibilité du texte "À propos" (desktop + tablet) ===== */
+/* ===== 4) Lisibilité du texte "À propos" ===== */
 #apropos p {
-  font-size: 1.12em;     /* + lisible */
-  line-height: 1.75;     /* + aéré */
+  font-size: 1.12em;
+  line-height: 1.75;
   letter-spacing: 0.005em;
-  max-width: 75ch;       /* largeur de ligne idéale */
-  margin: 0 auto 8px;    /* centré + un soupçon d’air */
+  max-width: 75ch;
+  margin: 0 auto 8px;
 }
 @media (max-width: 600px) {
   #apropos p {
-    font-size: 1.05em;   /* petit boost mobile sans forcer */
+    font-size: 1.05em;
     line-height: 1.65;
   }
 }
