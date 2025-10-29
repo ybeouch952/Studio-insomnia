@@ -96,6 +96,11 @@ nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
+.hero-content .cta-btn {
+  margin-top: 28px; /* décale le bouton vers le bas */
+}
+
+
 /* --- Mobile --- */
 @media (max-width: 600px) {
   .hero {
@@ -120,7 +125,12 @@ nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff;
 .cta-btn:hover, .cta-btn:focus { background: #4b6fa5; transform: translateY(-1px); }
 
 /* Sections */
-section { padding: 60px 20px; max-width: 960px; margin: 0 auto 60px; }
+section {
+  padding: 35px 20px;
+  max-width: 960px;
+  margin: 0 auto 30px; /* ↓ avant : 60px */
+}
+
 
 h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: 2.5em; margin-bottom: 20px; color: #7fb0ff; text-align: center; }
 
@@ -143,32 +153,23 @@ h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: 2.5em; margin-bott
 .artists-grid img:hover{ transform: scale(1.05); cursor:pointer; }
 .artists-grid figcaption{ margin-top:8px; font-size:.9em; font-style: italic; color:#bbb; }
 
-/* Spotify */
-.spotify-container{ display:flex; align-items:center; justify-content:center; gap:20px; margin:20px 0 40px; }
-/* wrapper ratio pour éviter le saut de layout */
-.spotify-embed-wrap {
-  position: relative;
+/* ===== Spotify playlist ===== */
+.spotify-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 50px;
+}
+
+.spotify-container iframe {
   width: 100%;
-  max-width: 700px;
-  aspect-ratio: 300 / 380; /* ratio de l'embed d'origine */
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,.8);
+  max-width: 700px;      /* largeur max propre et centrée */
+  height: 400px;         /* hauteur rectangulaire adaptée */
+  border-radius: 12px;   /* angles arrondis */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  border: none;
 }
-.spotify-embed-wrap iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  border: 0;
-}
-/* Fallback "retry" */
-.spotify-fallback {
-  display: grid;
-  gap: 10px;
-  justify-items: center;
-  margin-top: 10px;
-  text-align: center;
-}
-.spotify-fallback p { margin: 0 0 6px; }
+
 
 /* Team */
 .team-grid { display:flex; justify-content:center; gap:40px; flex-wrap: wrap; margin-top:20px; }
@@ -319,5 +320,86 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   #apropos p {
     font-size: 1.05em;
     line-height: 1.65;
+  }
+}
+
+
+/* ===== Matériel : 3 colonnes, photo au-dessus + liste en dessous ===== */
+#materiel { text-align: center; }
+
+.gear-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+/* Bloc colonne */
+.gear-col{
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.6);
+}
+
+/* Photo + légende */
+.gear-figure{ margin: 0 0 12px; }
+.gear-figure img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.7);
+}
+.gear-figure figcaption{
+  margin-top: 6px;
+  font-size: .95em;
+  color: #bbb;
+  font-style: italic;
+}
+
+/* Titres & listes */
+#materiel h3{
+  margin: 10px 0 8px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #7fb0ff;
+  font-size: 1.25em;
+}
+.gear-items{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  color: #ddd;
+  line-height: 1.6;
+}
+.gear-items li{ margin: 4px 0; }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .gear-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .gear-grid{ grid-template-columns: 1fr; }
+  .gear-figure img{ height: 200px; }
+}
+
+/* Harmonisation des espaces entre sections importantes */
+#gallery,
+#materiel,
+#discographie,
+#references,
+#equipe,
+#tarifs,
+#contact {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 28px 12px;
+    margin-bottom: 28px;
   }
 }

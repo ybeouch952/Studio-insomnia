@@ -17,7 +17,6 @@
   <link rel="dns-prefetch" href="https://open.spotify.com">
   <link rel="preconnect" href="https://open.spotify.com" crossorigin>
   <link rel="preconnect" href="https://i.scdn.co" crossorigin>
-
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/tarifs.css" />
 </head>
@@ -29,6 +28,7 @@
       <a href="#gallery">Galerie</a>
       <a href="#discographie">Discographie</a>
       <a href="#references">Références</a>
+      <a href="#materiel">Matériel</a>
       <a href="#equipe">L'équipe</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
@@ -61,9 +61,8 @@
   <section id="apropos">
     <h2>À propos</h2>
     <p>
-      Insomnia est un studio professionnel à Boulogne-Billancourt, spécialisé en enregistrement, mixage, mastering et production.
+      Insomnia est un studio professionnel à Boulogne-Billancourt, spécialisé en enregistrement, mixage, mastering et composition.
       Fondé en 2023 par l’ingénieur du son Maherito, le studio allie confort, équipements haut de gamme et atmosphère intimiste pour des prises de son soignées dans un cadre moderne et inspirant.
-      Nous accompagnons chaque projet avec exigence pour un résultat professionnel.
     </p>
   </section>
 
@@ -79,33 +78,23 @@
     </div>
   </section>
 
-  <!-- 3) Discographie -->
-  <section id="discographie" aria-label="Discographie">
-    <h2>Discographie</h2>
-    <p>Découvrez notre discographie sur Spotify.</p>
+<!-- 3) Discographie -->
+<section id="discographie" aria-label="Discographie">
+  <h2>Discographie</h2>
 
-    <div class="spotify-container">
-      <!-- wrapper ratio + ombre (évite CLS) -->
-      <div class="spotify-embed-wrap">
-        <iframe
-          id="spotify-embed"
-          title="Playlist Spotify"
-          src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
-          loading="lazy"
-          allow="encrypted-media"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+  <div class="spotify-container">
+    <iframe
+      id="spotify-embed"
+      title="Playlist Spotify"
+      src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
+      loading="lazy"
+      allow="encrypted-media"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
 
-      <!-- Fallback si l’iframe tarde ou échoue -->
-      <div id="spotify-fallback" class="spotify-fallback" hidden>
-        <p>La playlist met du temps à charger.</p>
-        <a class="spotify-btn" target="_blank" rel="noopener"
-           href="https://open.spotify.com/playlist/36tkMon2P1CIW7WusHZX9Q">Ouvrir dans Spotify</a>
-        <button id="spotify-retry" class="styled-btn" type="button">Réessayer</button>
-      </div>
-    </div>
-  </section>
 
   <!-- 4) Références (Or/Platine/Diamant) -->
   <section id="references" aria-label="Références">
@@ -141,7 +130,6 @@
           <p><img src="Images/guy2bezbar-ambition.jpg" alt="" class="cover-small" /> Guy2bezbar - Ambition (Album)</p>
         </div>
       </div>
-
       <div class="certif">
         <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
         <div class="certif-text">
@@ -149,7 +137,6 @@
           <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" /> Kerchak - Saison 2 (Single)</p>
         </div>
       </div>
-
       <div class="certif">
         <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
         <div class="certif-text">
@@ -159,6 +146,64 @@
       </div>
     </div>
   </section>
+
+
+  <!-- SECTION MATÉRIEL -->
+<section id="materiel" aria-label="Matériel du studio">
+  <h2>Matériel</h2>
+
+  <div class="gear-grid">
+    <!-- Col 1 : Control Room / Régie -->
+    <article class="gear-col">
+      <figure class="gear-figure">
+        <img src="Images/materiel-1.jpeg" alt="Régie / Control Room" loading="lazy" decoding="async">
+      </figure>
+      <ul class="gear-items">
+        <li>Surface de 20 m² – sécurisée et confortable</li>
+        <li>Ascenseur et accès handicapé</li>
+        <li>Capacité de 6 personnes</li>
+        <li>Climatisation et purificateur d’air</li>
+        <li>Machine à café, bouilloire, réfrigérateur</li>
+        <li>Mac Studio M2 – Universal Audio Apollo X6</li>
+        <li>Neve 1073, Distressor, Neve 8108 Vintage 1979</li>
+        <li>Enceintes Neumann KH310, Avantone MixCubes</li>
+        <li>Micro Shure SM57</li>
+      </ul>
+    </article>
+
+    <!-- Col 2 : Cabine voix -->
+    <article class="gear-col">
+      <figure class="gear-figure">
+        <img src="Images/materiel-2.jpeg" alt="Cabine voix" loading="lazy" decoding="async">
+      </figure>
+
+      <ul class="gear-items">
+        <li>Cabine de 10 m² isolée et traitée acoustiquement</li>
+        <li>Micro Neumann U87</li>
+        <li>Casque Sony MDR-7506</li>
+        <li>Télévision de recopie d’écran</li>
+        <li>Clavier MIDI connecté à la régie</li>
+        <li>Ambiance lumineuse ajustable</li>
+      </ul>
+    </article>
+
+    <!-- Col 3 : Instruments -->
+    <article class="gear-col">
+      <figure class="gear-figure">
+        <img src="Images/materiel-3.jpeg" alt="Instruments du studio" loading="lazy" decoding="async">
+      </figure>
+
+      <ul class="gear-items">
+        <li>Claviers MIDI et contrôleurs</li>
+        <li>Guitares Fender, Gibson, Cort, Gretsch</li>
+        <li>Basse Marcus Miller</li>
+        <li>Ampli guitare et pédales d’effet</li>
+        <li>Accessoires studio : stands, câbles, DI box</li>
+        <li>Instruments toujours entretenus et prêts à l’enregistrement</li>
+      </ul>
+    </article>
+  </div>
+</section>
 
   <!-- 5) L'équipe -->
   <section id="equipe" aria-label="L'équipe">
