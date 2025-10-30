@@ -5,253 +5,44 @@
   text-align: center;
 }
 
-h2, h3 {
-  font-family: 'Montserrat', Arial, sans-serif;
-}
+/* Titres */
+h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
 
 h2 {
   font-size: 2.8em;
   margin-bottom: 24px;
   color: #7fb0ff;
 }
-
 h3 {
   font-size: 1.8em;
   margin-bottom: 16px;
   color: #7fb0ff;
 }
 
-.pricing {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-}
-
-.pricing-card {
-  background: #1e1e1e;
-  padding: 28px 24px;
-  border-radius: 12px;
-  flex: 1 1 220px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: box-shadow 0.3s;
-  text-align: center;
-}
-
-.pricing-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
-}
-
-.price {
-  font-size: 2.2em;
-  font-weight: 700;
-  color: #6898e2;
-  margin-bottom: 12px;
-}
-
-.price span {
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #555;
-}
-
-.price.small {
-  font-size: 1.2em;
-  color: #444;
-  margin-top: -12px;
-  margin-bottom: 16px;
-}
-
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: #aaa;
-  font-size: 1em;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.pricing-card ul li {
-  margin-bottom: 8px;
-}
-
-.contact-us .contact-text {
-  font-size: 1.1em;
-  margin-bottom: 24px;
-  color: #aaa;
-}
-
-.contact-info h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.8em;
-  margin-bottom: 12px;
-  color: #7fb0ff;
-}
-
-.contact-info p,
-.contact-info .phone {
-  font-size: 1.15em;
-  color: #ddd;
-  margin: 4px 0;
-}
-
-.small-text {
-  font-size: 0.8em;
-}
-
-
-
-
-.certifications {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.certif {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 220px;
-  color: #aaa;
-  text-align: center;
-}
-
-
-
-.certif-text p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9em;
-  margin: 6px 0;
-  justify-content: center;
-}
-
-
-
-
-.cover-small {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.5);
-}
-
-.certif-icon {
-  height: 90px; /* taille du disque de platine, la référence */
-  width: auto;  /* largeur proportionnelle */
-  object-fit: contain;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.7));
-}
-
-/* Spécifique au disque or et diamant pour les rendre un peu plus larges */
-.certif-icon.or {
-  height: 90px;   /* légèrement plus grand en hauteur */
-  width: auto;
-}
-
-.certif-icon.diamant {
-    height: 95px;   /* légèrement plus grand en hauteur */
-  width: auto;
-}
-
-.spotify-container iframe {
-  width: 110%;
-  max-width: 1300px;
-}
-
-
-/* ===== Harmonisation cartes Tarifs ===== */
+/* =========================
+   Grille des cartes Tarifs
+   - 2 colonnes sur desktop
+   - 1 colonne sur mobile
+   ========================= */
 #tarifs .pricing{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  align-items: stretch; /* étire les colonnes à la même hauteur */
+  grid-template-columns: repeat(2, minmax(280px, 1fr)); /* 2 colonnes */
+  gap: 24px;
+  max-width: 980px;                  /* rendu premium centré */
+  margin: 0 auto 48px;
+  align-items: stretch;              /* mêmes hauteurs */
 }
 
-/* toutes les cartes identiques en forme */
-#tarifs .pricing-card{
-  background: #1e1e1e;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.6);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;   /* empile proprement */
-  height: 100%;             /* occupe la hauteur de la cellule */
-}
-
-/* titres et prix cohérents */
-#tarifs .pricing-card h2{
-  margin: 0 0 8px;
-  font-family: 'Montserrat', Arial, sans-serif;
-  color: #7fb0ff;
-}
-#tarifs .pricing-card .price{
-  font-size: 1.6em;
-  font-weight: 700;
-  margin: 6px 0 2px;
-}
-#tarifs .pricing-card .price.small{
-  font-size: 1.05em;
-  opacity: .9;
-  margin-bottom: 10px;
-}
-#tarifs .pricing-card .price span{
-  font-weight: 600;
-  font-size: 0.7em;
-  opacity: .9;
-}
-
-/* liste règles : même rendu partout, pas de déformation par les puces */
-#tarifs .pricing-card .rules{
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 0;
-}
-#tarifs .pricing-card .rules li{
-  margin: 6px 0;
-  padding-left: 18px;
-  position: relative;
-}
-#tarifs .pricing-card .rules li::before{
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0;
-  line-height: 1.2;
-  color: #7fb0ff;
-}
-
-/* assurer la même “forme” sur mobile */
-@media (max-width: 600px){
-  #tarifs .pricing{ gap: 14px; }
-  #tarifs .pricing-card{
-    border-radius: 12px;
-    padding: 16px;
+@media (max-width: 700px){
+  #tarifs .pricing{
+    grid-template-columns: 1fr;      /* 1 colonne sur mobile */
+    gap: 18px;
+    max-width: 560px;
   }
 }
-/* ===== Tarifs Studio - Grille 2x2 sur PC ===== */
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cartes par ligne */
-  gap: 24px;
-  justify-content: center;
-  align-items: stretch; /* égalise la hauteur */
-  margin-bottom: 48px;
-}
 
-/* Cartes uniformes */
-.pricing-card {
+/* Cartes */
+#tarifs .pricing-card{
   background: #1e1e1e;
   border-radius: 14px;
   box-shadow: 0 3px 12px rgba(0,0,0,.6);
@@ -263,36 +54,35 @@ h3 {
   text-align: center;
   transition: box-shadow 0.3s;
 }
-.pricing-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
-}
+#tarifs .pricing-card:hover { box-shadow: 0 10px 20px rgba(0, 0, 0, 1); }
 
-.pricing-card h2 {
+#tarifs .pricing-card h2{
+  margin: 0 0 12px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.8em;
-  margin-bottom: 12px;
   color: #7fb0ff;
 }
 
-.price {
-  font-size: 1.6em;
+/* =========================
+   Prix (uniformisés)
+   - même taille, même bleu
+   ========================= */
+.price,
+.price.small{
+  font-size: 2em;            /* même taille */
   font-weight: 700;
-  color: #6898e2;
-  margin: 4px 0;
-}
-.price.small {
-  font-size: 1.1em;
-  color: #ccc;
-  margin-bottom: 10px;
-}
-.price span {
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #777;
+  color: #6898e2;            /* même bleu */
+  margin: 6px 0;
 }
 
-/* listes intérieures */
-.pricing-card ul {
+.price span,
+.price.small span{
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #999;               /* / heure plus discret */
+}
+
+/* Listes (règles/info) */
+#tarifs .pricing-card ul{
   list-style: none;
   padding: 0;
   margin: 8px 0 0;
@@ -301,50 +91,67 @@ h3 {
   line-height: 1.5;
   text-align: center;
 }
-.pricing-card ul li {
-  margin-bottom: 6px;
+#tarifs .pricing-card ul li{ margin-bottom: 6px; }
+
+.small-text { font-size: 0.8em; }
+
+/* =========================
+   Certifications (inchangé)
+   ========================= */
+.certifications{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
-
-/* Responsive : 1 carte par ligne sur mobile */
-@media (max-width: 768px) {
-  .pricing {
-    grid-template-columns: 1fr; /* 1 par ligne */
-    gap: 18px;
-  }
-
-  .pricing-card {
-    padding: 20px 18px;
-  }
-}
-
-/* === TARIFS : grille 2×2 desktop, 1×4 mobile (override) === */
-#tarifs .pricing{
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(280px, 1fr)) !important; /* 2 colonnes fixes */
-  gap: 24px !important;
-  max-width: 980px;                 /* limite la largeur pour un rendu premium */
-  margin: 0 auto 48px !important;   /* centré + espace bas */
-  align-items: stretch !important;  /* mêmes hauteurs */
-}
-
-#tarifs .pricing-card{
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  background: #1e1e1e;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.6);
-  padding: 24px 22px;
+.certif{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 220px;
+  color: #aaa;
   text-align: center;
 }
+.certif-text p{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  margin: 6px 0;
+  justify-content: center;
+}
+.cover-small{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.certif-icon{
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.7));
+}
+.certif-icon.or{ height: 90px; }
+.certif-icon.diamant{ height: 95px; }
 
-/* Mobile: 1 carte par ligne */
-@media (max-width: 700px){
-  #tarifs .pricing{
-    grid-template-columns: 1fr !important;  /* 1 colonne */
-    gap: 18px !important;
-    max-width: 560px;
+/* =========================
+   Spotify (laisse tel quel)
+   ========================= */
+.spotify-container iframe{
+  width: 110%;
+  max-width: 1300px;
+}
+
+/* =========================
+   Finitions responsive cartes
+   ========================= */
+@media (max-width: 600px){
+  #tarifs .pricing-card{
+    border-radius: 12px;
+    padding: 20px 18px;
   }
-  #tarifs .pricing-card{ padding: 20px 18px; border-radius: 12px; }
 }
