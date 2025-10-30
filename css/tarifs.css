@@ -169,3 +169,21 @@ h3 {
     max-width: 420px;        /* largeur propre et centrée */
   }
 }
+
+/* Centrage parfait des cartes Tarifs sur mobile */
+@media (max-width: 700px){
+  #tarifs { padding-inline: 12px; }         /* marge symétrique */
+  #tarifs .pricing{
+    grid-template-columns: 1fr;             /* 1 colonne */
+    justify-items: center;                   /* centre l’item dans la cellule */
+    align-items: stretch;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;                              /* évite tout décalage */
+  }
+  #tarifs .pricing-card{
+    width: 100%;
+    max-width: 420px;                        /* largeur agréable */
+    margin: 0 auto;                          /* ceinture + bretelles */
+  }
+}
