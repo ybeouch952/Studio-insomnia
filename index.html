@@ -14,15 +14,6 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="shortcut icon" href="/favicon.png">
   <meta name="theme-color" content="#121212">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "url": "https://insomniastudio.fr/",
-  "logo": "https://insomniastudio.fr/favicon.png",
-  "name": "Insomnia Studio"
-}
-</script>
 
 
 
@@ -418,5 +409,48 @@
       }
     })();
   </script>
+
+  <script>
+  // Navigation sans hash dans l'URL
+  (function () {
+    const links = document.querySelectorAll('nav a[href^="#"]');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    links.forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+
+        // Scroll doux vers la section
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // URL intacte (retire un hash éventuel)
+        if ('replaceState' in history) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        // Focus accessible
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        setTimeout(() => target.removeAttribute('tabindex'), 800);
+
+        // Ferme le menu mobile
+        if (window.innerWidth <= 600 && menuToggle && navMenu) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          navMenu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    });
+
+    // Optionnel : au chargement, si un hash est présent, on le nettoie aussi
+    if (location.hash && 'replaceState' in history) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  })();
+</script>
+
 </body>
 </html>
