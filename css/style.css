@@ -1,12 +1,14 @@
+/* =========================
+   Variables & reset
+   ========================= */
 /* Polices déjà chargées via <link> dans le HTML — @import supprimé pour éviter le double chargement */
 
 :root{
-  --header-h: 88px; /* hauteur header desktop */
-  --header-h-m: 64px; /* hauteur header mobile */
+  --header-h: 88px;     /* hauteur header desktop */
+  --header-h-m: 64px;   /* hauteur header mobile */
 }
 
-*{ box-sizing: border-box; }
-
+* { box-sizing: border-box; }
 html, body { overflow-x: hidden; } /* sécurité anti-scroll horizontal */
 
 body {
@@ -21,6 +23,10 @@ body {
   body { padding-top: var(--header-h-m); }
 }
 
+
+/* =========================
+   Header & Navigation
+   ========================= */
 header {
   position: sticky; top: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: center;
@@ -47,7 +53,10 @@ nav a {
 }
 nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff; }
 
-/* --- HERO --- */
+
+/* =========================
+   Hero
+   ========================= */
 .hero {
   position: relative;
   width: 100%;
@@ -96,119 +105,193 @@ nav a:hover, nav a:focus, nav a.active { background-color: #4b6fa5; color: #fff;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
-.hero-content .cta-btn {
-  margin-top: 28px; /* décale le bouton vers le bas */
-}
+.hero-content .cta-btn { margin-top: 28px; } /* décale le bouton vers le bas */
 
-
-/* --- Mobile --- */
+/* Mobile hero */
 @media (max-width: 600px) {
-  .hero {
-    min-height: 420px;
-    padding: 40px 16px;
-  }
-
+  .hero { min-height: 420px; padding: 40px 16px; }
   .hero-content h1 { font-size: 2.2em; }
   .hero-content p  { font-size: 1.05em; }
 }
 
-/* CTA */
+
+/* =========================
+   Bouton CTA générique
+   ========================= */
 .cta-btn {
   display: inline-block;
   padding: 12px 26px;
   background: #6898e2;
-  color: #fff; border-radius: 28px; text-decoration: none;
-  font-size: 1.1em; font-weight: 600; font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  border-radius: 28px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
   transition: background 0.3s, transform .2s;
   box-shadow: 0 4px 8px rgb(104 152 226 / 0.6);
 }
 .cta-btn:hover, .cta-btn:focus { background: #4b6fa5; transform: translateY(-1px); }
 
-/* Sections */
+
+/* =========================
+   Sections & Titres
+   ========================= */
 section {
   padding: 35px 20px;
   max-width: 960px;
   margin: 0 auto 30px; /* ↓ avant : 60px */
 }
 
+h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #7fb0ff;
+  text-align: center;
+}
 
-h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: 2.5em; margin-bottom: 20px; color: #7fb0ff; text-align: center; }
 
-/* Galerie */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+/* =========================
+   Galerie
+   ========================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
 .gallery-grid figure { margin: 0; text-align: center; color: #aaa; font-size: .95em; }
 .gallery-grid img { width: 100%; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,.8); transition: transform .3s; }
 .gallery-grid img:hover { transform: scale(1.05); cursor: pointer; }
 .gallery-grid figcaption { margin-top: 8px; font-style: italic; color: #bbb; }
 
-/* Références / artistes */
+
+/* =========================
+   Références / Artistes
+   ========================= */
 #references, #certifications { text-align: center; }
-.labels-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:30px; align-items:center; justify-items:center; margin-bottom: 30px; }
-.labels-grid img { max-height:60px; object-fit:contain; filter: brightness(0) invert(1); transition: filter .3s; }
+
+.labels-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap:30px;
+  align-items:center;
+  justify-items:center;
+  margin-bottom: 30px;
+}
+.labels-grid img {
+  max-height:60px;
+  object-fit:contain;
+  filter: brightness(0) invert(1);
+  transition: filter .3s;
+}
 .labels-grid img:hover { filter: brightness(1) invert(0); cursor:pointer; }
 
-.artists-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:20px; justify-items:center; }
+.artists-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap:20px;
+  justify-items:center;
+}
 .artists-grid figure { margin: 0; text-align: center; color:#aaa; }
-.artists-grid img{ width:120px; height:120px; border-radius:12px; object-fit:cover; box-shadow:0 3px 8px rgba(0,0,0,.8); transition: transform .3s; }
+.artists-grid img{
+  width:120px; height:120px; border-radius:12px; object-fit:cover;
+  box-shadow:0 3px 8px rgba(0,0,0,.8); transition: transform .3s;
+}
 .artists-grid img:hover{ transform: scale(1.05); cursor:pointer; }
 .artists-grid figcaption{ margin-top:8px; font-size:.9em; font-style: italic; color:#bbb; }
 
-/* ===== Spotify playlist ===== */
+
+/* =========================
+   Spotify playlist
+   ========================= */
 .spotify-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30px auto 50px;
 }
-
 .spotify-container iframe {
   width: 100%;
-  max-width: 700px;      /* largeur max propre et centrée */
-  height: 400px;         /* hauteur rectangulaire adaptée */
-  border-radius: 12px;   /* angles arrondis */
+  max-width: 700px;    /* largeur max propre et centrée */
+  height: 400px;       /* hauteur rectangulaire adaptée */
+  border-radius: 12px; /* angles arrondis */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   border: none;
 }
 
 
-/* Team */
+/* =========================
+   Équipe
+   ========================= */
 .team-grid { display:flex; justify-content:center; gap:40px; flex-wrap: wrap; margin-top:20px; }
 .team-member img.zoomable { max-width: 320px; height:auto; cursor:zoom-in; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,.7); transition: transform .3s; }
 .team-member h4 { margin-bottom:4px; font-family:'Montserrat', Arial, sans-serif; font-size:1.2em; color:#7fb0ff; }
 .team-member p { margin-top:0; font-size:1em; font-style: italic; }
 
-/* Formulaire & boutons rapides */
-.styled-form{ max-width:700px; margin:0 auto 32px; padding:24px 28px; background:#222; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,.6); }
+
+/* =========================
+   Formulaire & Boutons rapides
+   ========================= */
+.styled-form{
+  max-width:700px; margin:0 auto 32px; padding:24px 28px;
+  background:#222; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,.6);
+}
 .form-group{ margin-bottom:14px; }
 label{ display:block; margin-bottom:6px; color:#ddd; }
+
 input[type="text"], input[type="email"], textarea{
-  width:100%; padding:10px 14px; border-radius:8px; border:none; background:#333; color:#eee; font-size:1em; transition: background .3s;
+  width:100%; padding:10px 14px; border-radius:8px; border:none;
+  background:#333; color:#eee; font-size:1em; transition: background .3s;
 }
 input:focus, textarea:focus{ background:#444; outline:none; }
-.styled-btn{ padding:12px 22px; font-size:1.05em; border:none; border-radius:12px; background:#6898e2; color:#fff; cursor:pointer; transition: background .3s, transform .2s; }
+
+.styled-btn{
+  padding:12px 22px; font-size:1.05em; border:none; border-radius:12px;
+  background:#6898e2; color:#fff; cursor:pointer; transition: background .3s, transform .2s;
+}
 .styled-btn:hover{ background:#4b6fa5; transform: translateY(-1px); }
 
 .contacts-buttons{ display:flex; justify-content:center; gap:14px; margin-top:22px; flex-wrap: wrap; }
-.contact-btn{ padding:12px 18px; font-size:1.05em; border-radius:12px; text-decoration:none; color:#fff; background:#4b6fa5; transition: background .3s, transform .2s; }
+.contact-btn{
+  padding:12px 18px; font-size:1.05em; border-radius:12px; text-decoration:none;
+  color:#fff; background:#4b6fa5; transition: background .3s, transform .2s;
+}
 .contact-btn:hover{ background:#3a558e; transform: translateY(-1px); }
 
-/* Footer */
+
+/* =========================
+   Footer
+   ========================= */
 footer { padding: 24px; background:#1e1e1e; text-align:center; color:#888; }
 footer img{ height:32px; margin:0 5px; }
 
-/* Accessibilité */
+
+/* =========================
+   Accessibilité focus
+   ========================= */
 nav a:focus, button:focus{ outline:3px solid #7fb0ff; outline-offset:3px; }
 
-/* Mobile perfection */
+
+/* =========================
+   Mobile navigation
+   ========================= */
 #menu-toggle{
   background:none; border:none; font-size: 1.8em; color:#7fb0ff; cursor:pointer; display:none;
 }
+
 @media (max-width: 600px){
-  header{ position: fixed; top: env(safe-area-inset-top); left:0; right:0; height: var(--header-h-m); padding: 10px 16px; gap: 16px; }
-  .logo{ height: 44px; }
-  #menu-toggle{
-    display:block; position: fixed; top: calc(env(safe-area-inset-top) + 10px); right: 16px; z-index: 1100;
+  header{
+    position: fixed; top: env(safe-area-inset-top); left:0; right:0;
+    height: var(--header-h-m); padding: 10px 16px; gap: 16px;
   }
+  .logo{ height: 44px; }
+
+  #menu-toggle{
+    display:block; position: fixed;
+    top: calc(env(safe-area-inset-top) + 10px); right: 16px; z-index: 1100;
+  }
+
   nav#nav-menu{
     position: fixed; top: 0; right: 0; bottom: 0;
     background-color:#1e1e1e; width: 78vw; max-width: 320px;
@@ -239,16 +322,25 @@ nav a:focus, button:focus{ outline:3px solid #7fb0ff; outline-offset:3px; }
   .team-member img.zoomable{ max-width: 100%; }
 }
 
-/* Ciblage accessibilité tactile */
+
+/* =========================
+   Ciblage accessibilité tactile
+   ========================= */
 button, .styled-btn, .cta-btn, .contact-btn{
   min-height: 44px;
   touch-action: manipulation;
 }
 
-/* Petites utilitaires */
+
+/* =========================
+   Utilitaires
+   ========================= */
 .small-text{ font-size: .85em; color: #aaa; }
 
-/* === HERO full-bleed & centré (override de la règle section) === */
+
+/* =========================
+   Hero full-bleed (override)
+   ========================= */
 section.hero{
   max-width: none;
   width: 100%;
@@ -257,39 +349,36 @@ section.hero{
   height: 600px;  /* bandeau */
   overflow: hidden;
 }
-
 section.hero .hero-bg{
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; object-position: center;
   filter: brightness(0.55);
 }
-
 section.hero .hero-content{
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+  position: relative; z-index: 2;
+  max-width: 700px; margin: 0 auto; padding: 0 20px; text-align: center;
 }
-
 section.hero .hero-content h1{ margin-bottom: 8px; line-height: 1.2; }
 section.hero .hero-content p{ margin: 6px 0; line-height: 1.35; }
 section.hero .hero-content p + p{ margin-top: 4px; }
 
-/* ===== 1) Espacement entre sections (desktop) ===== */
+
+/* =========================
+   Espacements desktop plus compacts
+   ========================= */
 @media (min-width: 768px) {
   section {
-    /* avant: padding: 60px 20px; margin: 0 auto 60px;  */
+    /* avant: padding: 60px 20px; margin: 0 auto 60px; */
     padding: 44px 20px;
     margin: 0 auto 44px;
   }
 }
 
-/* ===== 2) Artistes: 2 lignes équilibrées sur grand écran ===== */
+
+/* =========================
+   Artistes : 2 lignes équilibrées en grand
+   ========================= */
 @media (min-width: 1024px) {
   .artists-grid {
     /* avant: grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
@@ -298,7 +387,10 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   }
 }
 
-/* ===== 3) Phrase "Maher a collaboré..." plus visible ===== */
+
+/* =========================
+   Phrase "Maher a collaboré..."
+   ========================= */
 #certifications > p,
 #references > p {
   font-size: 1.18em;   /* léger boost */
@@ -308,7 +400,10 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   max-width: 920px;    /* largeur confortable */
 }
 
-/* ===== 4) Lisibilité du texte "À propos" ===== */
+
+/* =========================
+   Lisibilité "À propos"
+   ========================= */
 #apropos p {
   font-size: 1.12em;
   line-height: 1.75;
@@ -317,14 +412,13 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   margin: 0 auto 8px;
 }
 @media (max-width: 600px) {
-  #apropos p {
-    font-size: 1.05em;
-    line-height: 1.65;
-  }
+  #apropos p { font-size: 1.05em; line-height: 1.65; }
 }
 
 
-/* ===== Matériel : 3 colonnes, photo au-dessus + liste en dessous ===== */
+/* =========================
+   Matériel (3 colonnes)
+   ========================= */
 #materiel { text-align: center; }
 
 .gear-grid{
@@ -353,10 +447,7 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   box-shadow: 0 3px 10px rgba(0,0,0,.7);
 }
 .gear-figure figcaption{
-  margin-top: 6px;
-  font-size: .95em;
-  color: #bbb;
-  font-style: italic;
+  margin-top: 6px; font-size: .95em; color: #bbb; font-style: italic;
 }
 
 /* Titres & listes */
@@ -367,25 +458,22 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   font-size: 1.25em;
 }
 .gear-items{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  color: #ddd;
-  line-height: 1.6;
+  list-style: none; padding: 0; margin: 0;
+  text-align: left; color: #ddd; line-height: 1.6;
 }
 .gear-items li{ margin: 4px 0; }
 
-/* Responsive */
-@media (max-width: 1024px){
-  .gear-grid{ grid-template-columns: repeat(2, 1fr); }
-}
+/* Responsive Matériel */
+@media (max-width: 1024px){ .gear-grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px){
   .gear-grid{ grid-template-columns: 1fr; }
   .gear-figure img{ height: 200px; }
 }
 
-/* Harmonisation des espaces entre sections importantes */
+
+/* =========================
+   Harmonisation espaces sections clés
+   ========================= */
 #gallery,
 #materiel,
 #discographie,
@@ -404,7 +492,10 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   }
 }
 
-/* ===== Mention sous les tarifs ===== */
+
+/* =========================
+   Mention sous les tarifs
+   ========================= */
 .disclaimer {
   text-align: center;
   color: #aaa;

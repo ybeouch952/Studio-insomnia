@@ -2,21 +2,22 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Insomnia - Accueil</title>
 
   <!-- Perf: preconnect + Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
 
-  <!-- Perf: images -->
-  <link rel="preload" as="image" href="Images/photo-studio2.jpeg" fetchpriority="high">
+  <!-- Perf: image hero -->
+  <link rel="preload" as="image" href="Images/photo-studio2.jpeg" fetchpriority="high" />
 
-  <!-- Spotify: perf + robustesse -->
-  <link rel="dns-prefetch" href="https://open.spotify.com">
-  <link rel="preconnect" href="https://open.spotify.com" crossorigin>
-  <link rel="preconnect" href="https://i.scdn.co" crossorigin>
+  <!-- Spotify: perf -->
+  <link rel="dns-prefetch" href="https://open.spotify.com" />
+  <link rel="preconnect" href="https://open.spotify.com" crossorigin />
+  <link rel="preconnect" href="https://i.scdn.co" crossorigin />
+
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/tarifs.css" />
 </head>
@@ -33,9 +34,7 @@
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
-      ☰
-    </button>
+    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">☰</button>
   </header>
 
   <!-- Héro -->
@@ -43,11 +42,9 @@
     <img
       src="Images/photo-studio2.jpeg"
       alt=""
-      loading="eager"
-      fetchpriority="high"
       class="hero-bg"
       width="1920" height="800"
-      decoding="async"
+      loading="eager" fetchpriority="high" decoding="async"
     />
     <div class="hero-content">
       <h1><span style="font-size: 2em; display: block;">Insomnia</span></h1>
@@ -78,23 +75,21 @@
     </div>
   </section>
 
-<!-- 3) Discographie -->
-<section id="discographie" aria-label="Discographie">
-  <h2>Discographie</h2>
-
-  <div class="spotify-container">
-    <iframe
-      id="spotify-embed"
-      title="Playlist Spotify"
-      src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
-      loading="lazy"
-      allow="encrypted-media"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
-  </div>
-</section>
-
+  <!-- 3) Discographie -->
+  <section id="discographie" aria-label="Discographie">
+    <h2>Discographie</h2>
+    <div class="spotify-container">
+      <iframe
+        id="spotify-embed"
+        title="Playlist Spotify"
+        src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
+        loading="lazy"
+        allow="encrypted-media"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 
   <!-- 4) Références (Or/Platine/Diamant) -->
   <section id="references" aria-label="Références">
@@ -147,63 +142,60 @@
     </div>
   </section>
 
+  <!-- 4.5) Matériel -->
+  <section id="materiel" aria-label="Matériel du studio">
+    <h2>Matériel</h2>
 
-  <!-- SECTION MATÉRIEL -->
-<section id="materiel" aria-label="Matériel du studio">
-  <h2>Matériel</h2>
+    <div class="gear-grid">
+      <!-- Col 1 : Control Room / Régie -->
+      <article class="gear-col">
+        <figure class="gear-figure">
+          <img src="Images/materiel-1.jpeg" alt="Régie / Control Room" loading="lazy" decoding="async" />
+        </figure>
+        <ul class="gear-items">
+          <li>Surface de 20 m² – sécurisée et confortable</li>
+          <li>Ascenseur et accès handicapé</li>
+          <li>Capacité de 6 personnes</li>
+          <li>Climatisation et purificateur d’air</li>
+          <li>Machine à café, bouilloire, réfrigérateur</li>
+          <li>Mac Studio M2 – Universal Audio Apollo X6</li>
+          <li>Neve 1073, Distressor, Neve 8108 Vintage 1979</li>
+          <li>Enceintes Neumann KH310, Avantone MixCubes</li>
+          <li>Micro Shure SM57</li>
+        </ul>
+      </article>
 
-  <div class="gear-grid">
-    <!-- Col 1 : Control Room / Régie -->
-    <article class="gear-col">
-      <figure class="gear-figure">
-        <img src="Images/materiel-1.jpeg" alt="Régie / Control Room" loading="lazy" decoding="async">
-      </figure>
-      <ul class="gear-items">
-        <li>Surface de 20 m² – sécurisée et confortable</li>
-        <li>Ascenseur et accès handicapé</li>
-        <li>Capacité de 6 personnes</li>
-        <li>Climatisation et purificateur d’air</li>
-        <li>Machine à café, bouilloire, réfrigérateur</li>
-        <li>Mac Studio M2 – Universal Audio Apollo X6</li>
-        <li>Neve 1073, Distressor, Neve 8108 Vintage 1979</li>
-        <li>Enceintes Neumann KH310, Avantone MixCubes</li>
-        <li>Micro Shure SM57</li>
-      </ul>
-    </article>
+      <!-- Col 2 : Cabine voix -->
+      <article class="gear-col">
+        <figure class="gear-figure">
+          <img src="Images/materiel-2.jpeg" alt="Cabine voix" loading="lazy" decoding="async" />
+        </figure>
+        <ul class="gear-items">
+          <li>Cabine de 10 m² isolée et traitée acoustiquement</li>
+          <li>Micro Neumann U87</li>
+          <li>Casque Sony MDR-7506</li>
+          <li>Télévision de recopie d’écran</li>
+          <li>Clavier MIDI connecté à la régie</li>
+          <li>Ambiance lumineuse ajustable</li>
+        </ul>
+      </article>
 
-    <!-- Col 2 : Cabine voix -->
-    <article class="gear-col">
-      <figure class="gear-figure">
-        <img src="Images/materiel-2.jpeg" alt="Cabine voix" loading="lazy" decoding="async">
-      </figure>
-
-      <ul class="gear-items">
-        <li>Cabine de 10 m² isolée et traitée acoustiquement</li>
-        <li>Micro Neumann U87</li>
-        <li>Casque Sony MDR-7506</li>
-        <li>Télévision de recopie d’écran</li>
-        <li>Clavier MIDI connecté à la régie</li>
-        <li>Ambiance lumineuse ajustable</li>
-      </ul>
-    </article>
-
-    <!-- Col 3 : Instruments -->
-    <article class="gear-col">
-      <figure class="gear-figure">
-        <img src="Images/materiel-3.jpeg" alt="Instruments du studio" loading="lazy" decoding="async">
-      </figure>
-
-      <ul class="gear-items">
-        <li>Claviers MIDI et contrôleurs</li>
-        <li>Guitares Fender, Gibson, Cort, Gretsch</li>
-        <li>Basse Marcus Miller</li>
-        <li>Ampli guitare et pédales d’effet</li>
-        <li>Accessoires studio : stands, câbles, DI box</li>
-        <li>Instruments toujours entretenus et prêts à l’enregistrement</li>
-      </ul>
-    </article>
-  </div>
-</section>
+      <!-- Col 3 : Instruments -->
+      <article class="gear-col">
+        <figure class="gear-figure">
+          <img src="Images/materiel-3.jpeg" alt="Instruments du studio" loading="lazy" decoding="async" />
+        </figure>
+        <ul class="gear-items">
+          <li>Claviers MIDI et contrôleurs</li>
+          <li>Guitares Fender, Gibson, Cort, Gretsch</li>
+          <li>Basse Marcus Miller</li>
+          <li>Ampli guitare et pédales d’effet</li>
+          <li>Accessoires studio : stands, câbles, DI box</li>
+          <li>Instruments toujours entretenus et prêts à l’enregistrement</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
   <!-- 5) L'équipe -->
   <section id="equipe" aria-label="L'équipe">
@@ -230,46 +222,43 @@
   <!-- 6) Tarifs -->
   <section id="tarifs" aria-label="Tarifs">
     <h2>Nos Tarifs Studio</h2>
-    <div class="pricing-card">
-  <h2>Enregistrement</h2>
-
-  <!-- Prix ajoutés -->
-  <p class="price">50€ HT <span>/ heure</span></p>
-  <p class="price small">60€ TTC <span>/ heure</span></p>
-
-  <small class="small-text">* ne concerne pas les sessions avec Maherito</small>
-  <ul>
-    <li>Minimum 2h de réservation</li>
-    <li>Studio non fumeur</li>
-    <li>Max 4 personnes (artiste inclus)</li>
-    <li>Le retard n'est pas rattrapé</li>
-  </ul>
-</div>
-
-
+    <div class="pricing">
+      <div class="pricing-card">
+        <h2>Enregistrement</h2>
+        <p class="price">50€ HT <span>/ heure</span></p>
+        <p class="price small">60€ TTC <span>/ heure</span></p>
+        <small class="small-text">* ne concerne pas les sessions avec Maherito</small>
+        <ul>
+          <li>Minimum 2h de réservation</li>
+          <li>Studio non fumeur</li>
+          <li>Max 4 personnes (artiste inclus)</li>
+          <li>Le retard n'est pas rattrapé</li>
+        </ul>
       </div>
+
       <div class="pricing-card">
         <h2>Mixage</h2>
         <p class="price">350€ HT <span>par titre</span></p>
         <p class="price small">250€ HT <span>par titre si enregistré au studio</span></p>
       </div>
+
       <div class="pricing-card">
         <h2>Mastering</h2>
         <p class="price">50€ HT</p>
       </div>
+
       <div class="pricing-card contact-us">
         <h2>Production</h2>
         <p class="contact-text">Nous contacter pour un devis personnalisé</p>
         <a href="#contact" class="cta-btn">Contactez-nous</a>
       </div>
     </div>
-    </section>
+  </section>
 
-<p class="disclaimer">Nous ne sommes pas responsables des sessions. Pensez à vous munir d’un disque dur pour récupérer vos fichiers.</p>
+  <p class="disclaimer">Nous ne sommes pas responsables des sessions. Pensez à vous munir d’un disque dur pour récupérer vos fichiers.</p>
 
-<!-- 7) Contact -->
-<section id="contact" class="contact-info" aria-label="Contact">
-
+  <!-- 7) Contact -->
+  <section id="contact" class="contact-info" aria-label="Contact">
     <h2>Contact</h2>
 
     <form id="contact-form" class="styled-form" action="https://formspree.io/f/xnnoplkl" method="POST" novalidate>
@@ -304,7 +293,7 @@
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
-  <!-- JS: defer + correctifs + Spotify robustesse -->
+  <!-- JS: defer + correctifs -->
   <script defer>
     // Scroll spy affiné
     window.addEventListener('scroll', () => {
@@ -381,10 +370,10 @@
       navMenu.setAttribute('aria-hidden', expanded);
     });
 
-    // --- Robustesse Spotify ---
+    // Robustesse Spotify (fallback inactif si éléments absents)
     (function(){
       const iframe = document.getElementById('spotify-embed');
-      if(!iframe) return;
+      if (!iframe) return;
 
       const fallback = document.getElementById('spotify-fallback');
       const retryBtn = document.getElementById('spotify-retry');
