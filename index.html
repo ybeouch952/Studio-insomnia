@@ -300,157 +300,184 @@
     <small><a href="legal.html" style="color: white;">Mentions légales</a></small>
   </footer>
 
-  <!-- JS: defer + correctifs -->
-  <script defer>
-    // Scroll spy affiné
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const menuLinks = document.querySelectorAll('nav a');
+  <!-- JS : fonctionnalités complètes + correctifs -->
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
 
-      if (window.scrollY === 0) {
-        menuLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#apropos');
-        });
-        return;
-      }
+  /* =============================
+     1. Scroll spy (menu actif)
+  ============================= */
+  window.addEventListener("scroll", () => {
+    const sections = document.querySelectorAll("section[id]");
+    const menuLinks = document.querySelectorAll("nav a");
 
-      sections.forEach(section => {
-        const id = section.getAttribute('id');
-        const title = section.querySelector('h2');
-        if (title) {
-          const titleRect = title.getBoundingClientRect();
-          if (titleRect.top >= 0 && titleRect.top < 100) {
-            menuLinks.forEach(link => {
-              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-            });
-          }
-        }
+    if (window.scrollY === 0) {
+      menuLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === "#apropos");
       });
-    });
+      return;
+    }
 
-    // Zoom images des membres
-    document.querySelectorAll('.zoomable').forEach(img => {
-      img.addEventListener('click', () => {
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-          position:fixed;inset:0;background:rgba(0,0,0,.8);
-          display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:10000
-        `;
-        const zoomImg = document.createElement('img');
-        zoomImg.src = img.src;
-        zoomImg.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.9)';
-        overlay.appendChild(zoomImg);
-        document.body.appendChild(overlay);
-        overlay.addEventListener('click', () => overlay.remove());
-      });
-    });
-
-    // Formspree AJAX
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const formData = new FormData(this);
-      fetch(this.action, {
-        method: this.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        const target = document.getElementById('form-message');
-        if (response.ok) {
-          target.textContent = "Merci pour votre message !";
-          this.reset();
-        } else {
-          response.json().then(data => {
-            target.textContent = data?.errors ? data.errors.map(e => e.message).join(", ") : "Erreur lors de l'envoi.";
+    sections.forEach(section => {
+      const id = section.getAttribute("id");
+      const title = section.querySelector("h2");
+      if (title) {
+        const titleRect = title.getBoundingClientRect();
+        if (titleRect.top >= 0 && titleRect.top < 100) {
+          menuLinks.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
           });
         }
-      }).catch(() => {
-        document.getElementById('form-message').textContent = "Erreur réseau, veuillez réessayer.";
-      });
-    });
-
-    // Menu mobile accessible
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      navMenu.setAttribute('aria-hidden', expanded);
-    });
-
-    // Robustesse Spotify (fallback inactif si éléments absents)
-    (function(){
-      const iframe = document.getElementById('spotify-embed');
-      if (!iframe) return;
-
-      const fallback = document.getElementById('spotify-fallback');
-      const retryBtn = document.getElementById('spotify-retry');
-
-      let loaded = false;
-      iframe.addEventListener('load', () => {
-        loaded = true;
-        if (fallback) fallback.hidden = true;
-      });
-
-      // Affiche le fallback si ça ne charge pas en 6s
-      setTimeout(() => {
-        if (!loaded && fallback) fallback.hidden = false;
-      }, 6000);
-
-      // Réessayer: on relance la source
-      if (retryBtn) {
-        retryBtn.addEventListener('click', () => {
-          loaded = false;
-          fallback.hidden = true;
-          const src = iframe.getAttribute('src') || '';
-          iframe.setAttribute('src', 'about:blank');
-          setTimeout(() => iframe.setAttribute('src', src), 50);
-          setTimeout(() => { if (!loaded && fallback) fallback.hidden = false; }, 6000);
-        });
       }
-    })();
-  </script>
+    });
+  });
 
-  <script>
-  // Navigation sans hash dans l'URL
-  (function () {
-    const links = document.querySelectorAll('nav a[href^="#"]');
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+  /* =============================
+     2. Zoom sur les images (.zoomable)
+  ============================= */
+  document.querySelectorAll(".zoomable").forEach(img => {
+    img.addEventListener("click", () => {
+      const overlay = document.createElement("div");
+      overlay.style.cssText = `
+        position:fixed;inset:0;background:rgba(0,0,0,.8);
+        display:flex;align-items:center;justify-content:center;
+        cursor:zoom-out;z-index:10000;
+      `;
+      const zoomImg = document.createElement("img");
+      zoomImg.src = img.src;
+      zoomImg.style.cssText = `
+        max-width:90vw;max-height:90vh;border-radius:12px;
+        box-shadow:0 8px 40px rgba(0,0,0,.9);
+      `;
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+      overlay.addEventListener("click", () => overlay.remove());
+    });
+  });
 
-    links.forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href').slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
+  /* =============================
+     3. Formulaire (Formspree AJAX)
+  ============================= */
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { "Accept": "application/json" }
+      })
+        .then(response => {
+          const target = document.getElementById("form-message");
+          if (response.ok) {
+            target.textContent = "Merci pour votre message !";
+            form.reset();
+          } else {
+            response.json().then(data => {
+              target.textContent = data?.errors
+                ? data.errors.map(e => e.message).join(", ")
+                : "Erreur lors de l'envoi.";
+            });
+          }
+        })
+        .catch(() => {
+          document.getElementById("form-message").textContent =
+            "Erreur réseau, veuillez réessayer.";
+        });
+    });
+  }
 
-        // Scroll doux vers la section
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  /* =============================
+     4. Menu mobile accessible
+  ============================= */
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
 
-        // URL intacte (retire un hash éventuel)
-        if ('replaceState' in history) {
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-        }
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true" || false;
+      menuToggle.setAttribute("aria-expanded", !expanded);
+      navMenu.setAttribute("aria-hidden", expanded);
+    });
+  }
 
-        // Focus accessible
-        target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-        setTimeout(() => target.removeAttribute('tabindex'), 800);
+  /* =============================
+     5. Navigation fluide sans hash dans l’URL
+  ============================= */
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      const id = link.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
 
-        // Ferme le menu mobile
-        if (window.innerWidth <= 600 && menuToggle && navMenu) {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          navMenu.setAttribute('aria-hidden', 'true');
-        }
-      });
+      // Scroll fluide
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Supprime le hash immédiatement
+      if (history.replaceState) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+
+      // Accessibilité : focus temporaire
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+      setTimeout(() => target.removeAttribute("tabindex"), 1000);
+
+      // Ferme le menu mobile
+      if (window.innerWidth <= 600 && menuToggle && navMenu) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        navMenu.setAttribute("aria-hidden", "true");
+      }
+    });
+  });
+
+  // Nettoie aussi le hash si on arrive avec une ancre externe
+  if (location.hash && history.replaceState) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
+  /* =============================
+     6. Spotify : robustesse du lecteur
+  ============================= */
+  (function(){
+    const iframe = document.getElementById("spotify-embed");
+    if (!iframe) return;
+
+    const fallback = document.getElementById("spotify-fallback");
+    const retryBtn = document.getElementById("spotify-retry");
+
+    let loaded = false;
+    iframe.addEventListener("load", () => {
+      loaded = true;
+      if (fallback) fallback.hidden = true;
     });
 
-    // Optionnel : au chargement, si un hash est présent, on le nettoie aussi
-    if (location.hash && 'replaceState' in history) {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
+    // Affiche un fallback si ça ne charge pas après 6s
+    setTimeout(() => {
+      if (!loaded && fallback) fallback.hidden = false;
+    }, 6000);
+
+    // Bouton “réessayer”
+    if (retryBtn) {
+      retryBtn.addEventListener("click", () => {
+        loaded = false;
+        fallback.hidden = true;
+        const src = iframe.getAttribute("src") || "";
+        iframe.setAttribute("src", "about:blank");
+        setTimeout(() => iframe.setAttribute("src", src), 50);
+        setTimeout(() => {
+          if (!loaded && fallback) fallback.hidden = false;
+        }, 6000);
+      });
     }
   })();
+
+}); // <-- fin DOMContentLoaded
 </script>
+
 
 </body>
 </html>
