@@ -403,3 +403,13 @@ section.hero .hero-content p + p{ margin-top: 4px; }
     margin-bottom: 28px;
   }
 }
+
+/* ===== Mention sous les tarifs ===== */
+.disclaimer {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95em;
+  font-style: italic;
+  margin: -10px auto 40px; /* espace au-dessus réduit, dessous plus large */
+  max-width: 800px;
+}
