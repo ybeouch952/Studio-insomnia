@@ -200,3 +200,43 @@ header {
   background-color: #121212; /* même fond que le reste du site */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
+
+/* Mobile : grille bien centrée, 1 carte par ligne, largeur contrôlée */
+@media (max-width: 700px){
+  #tarifs .pricing{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center;       /* centre la/les cartes */
+    gap: 18px !important;
+    padding-inline: 12px;        /* évite tout débord à droite */
+  }
+
+  #tarifs .pricing-card{
+    width: 100%;
+    max-width: 560px;            /* borne la largeur pour Android */
+    border-radius: 12px;
+    padding: 18px;
+    box-sizing: border-box;      /* sécurité */
+  }
+
+  /* Texte interne : jamais de débord horizontal */
+  #tarifs .pricing-card *{
+    overflow-wrap: break-word;
+    word-break: break-word; /* vieilles versions Android */
+  }
+}
+
+/* Harmonisation des prix (même taille/couleur) — au cas où */
+#tarifs .pricing-card .price,
+#tarifs .pricing-card .price.small{
+  font-size: 1.6em;     /* même taille */
+  font-weight: 700;
+  color: #6898e2;       /* même bleu */
+  margin: 6px 0;
+}
+#tarifs .pricing-card .price span,
+#tarifs .pricing-card .price.small span{
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #999;
+}

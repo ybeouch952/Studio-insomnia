@@ -499,3 +499,16 @@ section.hero .hero-content p + p{ margin-top: 4px; }
   margin: -10px auto 40px; /* espace au-dessus réduit, dessous plus large */
   max-width: 800px;
 }
+
+
+/* HERO — réglage mobile : moins haut + coupe le bas */
+@media (max-width: 600px){
+  section.hero{
+    /* hauteur plus raisonnable et stable sur Android */
+    height: min(60vh, 420px);
+  }
+  section.hero .hero-bg{
+    /* on cadre plus haut pour "couper" le bas */
+    object-position: center 20%;
+  }
+}
