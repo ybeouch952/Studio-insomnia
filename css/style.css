@@ -336,10 +336,21 @@ h4 {
 .logo { height: 46px; width: auto; }
 
 #nav-menu {
+  /* Desktop : flottant fixe centré sur la ligne du header */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--header-h);
   display: flex;
   gap: 2px;
   align-items: center;
   flex-wrap: nowrap;
+  z-index: 1001; /* au-dessus du header */
+  /* Toujours visible sur desktop quel que soit aria-hidden */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 #nav-menu a {
   font-size: .82rem;
@@ -1420,18 +1431,21 @@ body.light-mode {
   #menu-toggle { display: flex; }
 
   #nav-menu {
+    /* Reset des valeurs desktop */
     position: fixed;
     top: var(--header-h);
+    left: auto;
     right: 0;
     bottom: 0;
+    height: auto;
     width: min(82vw, 310px);
+    transform: translate3d(100%, 0, 0);
     background: var(--bg-surface);
     border-left: 1px solid var(--glass-border);
     flex-direction: column;
     gap: 4px;
     padding: 18px 16px 28px;
     z-index: 1050;
-    transform: translate3d(100%, 0, 0);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;

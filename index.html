@@ -81,18 +81,6 @@
       </a>
     </div>
 
-    <nav id="nav-menu" aria-label="Navigation principale" aria-hidden="true">
-      <a href="#apropos">À propos</a>
-      <a href="#gallery">Galerie</a>
-      <a href="#discographie">Discographie</a>
-      <a href="#references">Références</a>
-      <a href="#materiel">Matériel</a>
-      <a href="#equipe">Équipe</a>
-      <a href="#pass-culture">Pass Culture</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
     <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
       <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
         <span class="burger-bar"></span>
@@ -101,6 +89,19 @@
       </button>
     </div>
   </header>
+
+  <!-- Nav en dehors du header pour éviter le bug iOS Safari backdrop-filter -->
+  <nav id="nav-menu" aria-label="Navigation principale" aria-hidden="true">
+    <a href="#apropos">À propos</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#discographie">Discographie</a>
+    <a href="#references">Références</a>
+    <a href="#materiel">Matériel</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#pass-culture">Pass Culture</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <!-- ═══ HERO ═══ -->
   <section id="hero" class="hero" aria-label="Présentation du studio">
@@ -197,9 +198,8 @@
         <iframe
           id="spotify-embed"
           title="Playlist Insomnia Studio sur Spotify"
-          src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
-          loading="lazy"
-          allow="encrypted-media"
+          src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q?utm_source=generator&theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           frameborder="0"
           allowfullscreen
         ></iframe>
@@ -857,12 +857,15 @@
         iframe.addEventListener("load", function() { loaded = true; });
         setTimeout(function() {
           if (!loaded) {
-            var fb = document.createElement("p");
-            fb.textContent = "Le lecteur Spotify n'a pas pu se charger. Retrouvez-nous directement sur Spotify.";
-            fb.style.cssText = "text-align:center;color:var(--text-muted);padding:24px";
+            var fb = document.createElement("div");
+            fb.style.cssText = "text-align:center;padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:16px";
+            fb.innerHTML = '<p style="color:var(--text-muted);margin:0">Le lecteur Spotify ne peut pas s\'afficher ici.</p>'
+              + '<a href="https://open.spotify.com/playlist/36tkMon2P1CIW7WusHZX9Q" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="gap:10px">'
+              + '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#1DB954" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 0 1-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 1 1-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 0 1 .207.857zm1.223-2.722a.78.78 0 0 1-1.072.257C14.14 12.26 10.64 11.8 7.91 12.57a.78.78 0 0 1-.396-1.508c3.1-.814 6.953-.42 9.638 1.568a.78.78 0 0 1 .257 1.072zm.105-2.835C14.69 9.14 9.802 8.98 6.944 9.822a.937.937 0 1 1-.543-1.794c3.277-.994 8.73-.803 12.172 1.218a.937.937 0 0 1-.659 1.62z"/></svg>'
+              + 'Écouter sur Spotify</a>';
             iframe.parentNode.replaceChild(fb, iframe);
           }
-        }, 7000);
+        }, 12000);
       })();
 
     }); /* end DOMContentLoaded */
