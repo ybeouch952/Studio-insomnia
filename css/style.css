@@ -1430,12 +1430,21 @@ body.light-mode {
     padding: 82px 18px 32px;
     z-index: 1050;
     transform: translateX(110%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     transition: transform .35s cubic-bezier(.22,.68,0,1.2);
     overflow-y: auto;
     align-items: flex-start;
     backdrop-filter: blur(24px);
   }
-  #nav-menu[aria-hidden="false"] { transform: translateX(0); }
+  #nav-menu[aria-hidden="false"] {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform .35s cubic-bezier(.22,.68,0,1.2), opacity .2s ease;
+  }
   #nav-menu a { font-size: .97rem; padding: 12px 14px; width: 100%; }
 
   .hero { max-height: 750px; }

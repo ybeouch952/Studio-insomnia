@@ -692,12 +692,14 @@
       if (menuToggle && navMenu) {
         function closeMenu() {
           menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Ouvrir le menu");
           navMenu.setAttribute("aria-hidden", "true");
           menuToggle.classList.remove("open");
           document.body.classList.remove("menu-open");
         }
         function openMenu() {
           menuToggle.setAttribute("aria-expanded", "true");
+          menuToggle.setAttribute("aria-label", "Fermer le menu");
           navMenu.setAttribute("aria-hidden", "false");
           menuToggle.classList.add("open");
           document.body.classList.add("menu-open");
@@ -713,6 +715,11 @@
         });
         document.addEventListener("keydown", function(e) {
           if (e.key === "Escape") closeMenu();
+        });
+        window.addEventListener("resize", function() {
+          if (window.innerWidth > 680 && navMenu.getAttribute("aria-hidden") === "false") {
+            closeMenu();
+          }
         });
       }
 
