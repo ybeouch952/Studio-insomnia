@@ -569,6 +569,11 @@ h4 {
   line-height: 1;
   display: block;
 }
+.stat-num--pass {
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
 .stat-label {
   font-size: .72rem;
   color: var(--text-muted);
