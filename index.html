@@ -711,7 +711,9 @@
           link.addEventListener("click", closeMenu);
         });
         document.addEventListener("click", function(e) {
-          if (!header.contains(e.target) && navMenu.getAttribute("aria-hidden") === "false") closeMenu();
+          var clickedToggle = e.target === menuToggle || menuToggle.contains(e.target);
+          var clickedMenu = navMenu.contains(e.target);
+          if (!clickedToggle && !clickedMenu && navMenu.getAttribute("aria-hidden") === "false") closeMenu();
         });
         document.addEventListener("keydown", function(e) {
           if (e.key === "Escape") closeMenu();

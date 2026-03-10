@@ -1421,29 +1421,34 @@ body.light-mode {
 
   #nav-menu {
     position: fixed;
-    top: 0; right: 0; bottom: 0;
-    width: min(78vw, 290px);
+    top: var(--header-h);
+    right: 0;
+    bottom: 0;
+    width: min(82vw, 310px);
     background: var(--bg-surface);
     border-left: 1px solid var(--glass-border);
     flex-direction: column;
     gap: 4px;
-    padding: 82px 18px 32px;
+    padding: 18px 16px 28px;
     z-index: 1050;
-    transform: translateX(110%);
+    transform: translate3d(100%, 0, 0);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: transform .35s cubic-bezier(.22,.68,0,1.2);
+    transition: transform .32s cubic-bezier(.22,.68,0,1), opacity .2s ease;
     overflow-y: auto;
+    overscroll-behavior: contain;
     align-items: flex-start;
-    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: -14px 0 40px rgba(0,0,0,.45);
+    will-change: transform, opacity;
   }
   #nav-menu[aria-hidden="false"] {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transition: transform .35s cubic-bezier(.22,.68,0,1.2), opacity .2s ease;
   }
   #nav-menu a { font-size: .97rem; padding: 12px 14px; width: 100%; }
 
