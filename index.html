@@ -1,505 +1,865 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Insomnia </title>
+  <title>Insomnia Studio — Studio d'enregistrement à Boulogne-Billancourt</title>
 
-  <!-- Perf: preconnect + Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- SEO -->
+  <meta name="description" content="Insomnia Studio est un studio d'enregistrement, mixage, mastering et production à Boulogne-Billancourt. Fondé par Maherito, accrédité Pass Culture. Artistes : Himra, Kerchak, Da Uzi, Genezio…" />
+  <meta name="keywords" content="insomnia studio, studio enregistrement paris, boulogne-billancourt, mixage, mastering, production, maherito, pass culture, studio rap, studio hip-hop" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://insomniastudio.fr/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Insomnia Studio — Studio d'enregistrement à Boulogne-Billancourt" />
+  <meta property="og:description" content="Enregistrement, mixage, mastering et production avec Maherito. Accrédité Pass Culture. Artistes certifiés Or, Platine &amp; Diamant." />
+  <meta property="og:image"       content="https://insomniastudio.fr/Images/logo.png" />
+  <meta property="og:url"         content="https://insomniastudio.fr" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Insomnia Studio — Boulogne-Billancourt" />
+  <meta name="twitter:description" content="Studio pro accrédité Pass Culture. Rec, Mix, Master, Production." />
+  <meta name="twitter:image"      content="https://insomniastudio.fr/Images/logo.png" />
+
+  <!-- PWA -->
+  <meta name="theme-color" content="#080810" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicVenue",
+    "name": "Insomnia Studio",
+    "description": "Studio d'enregistrement, mixage, mastering et production à Boulogne-Billancourt.",
+    "url": "https://insomniastudio.fr",
+    "telephone": "+33603818567",
+    "email": "maherito.engineer@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Boulogne-Billancourt",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    },
+    "sameAs": ["https://www.instagram.com/insomnia.studioparis/"]
+  }
+  </script>
+
+  <!-- Fonts : Space Grotesk + Syne -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet" />
-  <!-- Favicon / Icône du site -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300..700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-
-  <!-- Favicon / Icône du site -->
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-   <link rel="apple-touch-icon" href="/favicon.png">
-   <link rel="shortcut icon" href="/favicon.png">
-   <meta name="theme-color" content="#121212">
-
-
-
-
-  <!-- Perf: image hero -->
+  <!-- Preload critique -->
   <link rel="preload" as="image" href="Images/photo-studio2.jpeg" fetchpriority="high" />
-
-  <!-- Spotify: perf -->
   <link rel="dns-prefetch" href="https://open.spotify.com" />
   <link rel="preconnect" href="https://open.spotify.com" crossorigin />
-  <link rel="preconnect" href="https://i.scdn.co" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/tarifs.css" />
-
-
-  <meta name="title" content="Insomnia Studio - Studio d’enregistrement à Boulogne-Billancourt">
-  <meta name="description" content="Insomnia Studio est un studio d’enregistrement, mixage, mastering et production situé à Boulogne-Billancourt. Fondé par Maherito, il accueille de nombreux artistes français et internationaux.">
-  <meta name="keywords" content="insomnia studio, studio enregistrement paris, boulogne-billancourt, mixage, mastering, production, maherito">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Insomnia Studio - Studio d’enregistrement à Boulogne-Billancourt">
-  <meta property="og:description" content="Enregistrement, mixage, mastering et production avec Maherito. Un espace professionnel, confortable et haut de gamme.">
-  <meta property="og:image" content="https://insomniastudio.fr/Images/logo.png">
-  <meta property="og:url" content="https://insomniastudio.fr">
-  <meta name="twitter:card" content="summary_large_image">
-
 </head>
 <body>
-  <header role="banner">
-    <img src="Images/logo.png" alt="Logo Studio Insomnia" class="logo" decoding="async" fetchpriority="high" />
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="page-loader" role="status" aria-label="Chargement">
+    <div class="loader-inner">
+      <img src="Images/logo.png" alt="" class="loader-logo" decoding="async" />
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header id="site-header" role="banner">
+    <div class="header-left">
+      <a href="#hero" aria-label="Insomnia Studio — Accueil">
+        <img src="Images/logo.png" alt="Logo Insomnia Studio" class="logo" decoding="async" fetchpriority="high" />
+      </a>
+    </div>
+
     <nav id="nav-menu" aria-label="Navigation principale" aria-hidden="true">
-      <a href="#apropos" class="active">À propos</a>
+      <a href="#apropos">À propos</a>
       <a href="#gallery">Galerie</a>
       <a href="#discographie">Discographie</a>
       <a href="#references">Références</a>
       <a href="#materiel">Matériel</a>
-      <a href="#equipe">L'équipe</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#pass-culture">Pass Culture</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">☰</button>
+
+    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+      <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
   </header>
 
-  <!-- Héro -->
-  <section id="hero" class="hero" aria-label="Présentation">
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" class="hero" aria-label="Présentation du studio">
     <img
       src="Images/photo-studio2.jpeg"
-      alt=""
+      alt="Vue panoramique du Studio Insomnia, Boulogne-Billancourt"
       class="hero-bg"
       width="1920" height="800"
       loading="eager" fetchpriority="high" decoding="async"
     />
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1><span style="font-size: 2em; display: block;">Insomnia</span></h1>
-      <p style="font-size: 1.2em;">Studio d'enregistrement à Boulogne-Billancourt</p>
-      <p>Rec, mixage, mastering, production</p>
-      <a href="#contact" class="cta-btn">Prendre contact</a>
+      <span class="hero-tag">Boulogne-Billancourt · Paris</span>
+      <h1>Insomnia<br /><span class="hero-sub">Studio</span></h1>
+      <p class="hero-desc">Enregistrement · Mixage · Mastering · Production</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Réserver une session</a>
+        <a href="#apropos" class="btn btn-ghost">Découvrir</a>
+      </div>
+    </div>
+    <a href="#apropos" class="hero-scroll-hint" aria-label="Défiler vers le bas">
+      <span class="scroll-dot"></span>
+    </a>
+  </section>
+
+  <!-- ═══ STATS BAND ═══ -->
+  <div class="stats-band" aria-label="Chiffres clés du studio">
+    <div class="stat-item reveal">
+      <span class="stat-num" data-count="2023" data-format="year">2023</span>
+      <span class="stat-label">Fondation</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-num" data-count="3">0</span>
+      <span class="stat-label">Certifications</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-num" data-count="12" data-suffix="+">0</span>
+      <span class="stat-label">Artistes</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-num">Pass</span>
+      <span class="stat-label">Culture accrédité</span>
+    </div>
+  </div>
+
+  <!-- ═══ À PROPOS ═══ -->
+  <section id="apropos" class="section-padded">
+    <div class="section-inner">
+      <div class="section-label reveal">Studio</div>
+      <h2 class="reveal">À propos</h2>
+      <div class="about-body">
+        <p class="reveal reveal-delay-1">
+          Insomnia est un studio professionnel à Boulogne-Billancourt, spécialisé en enregistrement, mixage, mastering et composition.
+          Fondé en 2023 par l'ingénieur du son <strong>Maherito</strong>, le studio allie confort, équipements haut de gamme et atmosphère intimiste pour des prises de son soignées dans un cadre moderne et inspirant.
+        </p>
+        <p class="reveal reveal-delay-2">
+          Conçu pour accueillir artistes émergents comme confirmés, Insomnia est aujourd'hui accrédité <strong>Pass Culture</strong> — permettant aux jeunes bénéficiaires de financer leurs sessions directement via l'application.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- 1) À propos -->
-  <section id="apropos">
-    <h2>À propos</h2>
-    <p>
-      Insomnia est un studio professionnel à Boulogne-Billancourt, spécialisé en enregistrement, mixage, mastering et composition.
-      Fondé en 2023 par l’ingénieur du son Maherito, le studio allie confort, équipements haut de gamme et atmosphère intimiste pour des prises de son soignées dans un cadre moderne et inspirant.
-    </p>
-  </section>
-
-  <!-- 2) Galerie -->
-  <section id="gallery" aria-label="Galerie">
-    <h2>Galerie</h2>
-    <div class="gallery-grid">
-      <figure><img src="Images/photo1.jpeg" alt="Vue du studio" loading="lazy" decoding="async" /></figure>
-      <figure><img src="Images/photo2.jpeg" alt="Micro et cabine" loading="lazy" decoding="async" /></figure>
-      <figure><img src="Images/photo3.jpeg" alt="Session d’enregistrement" loading="lazy" decoding="async" /></figure>
-      <figure><img src="Images/photo4.jpeg" alt="Guitare du studio" loading="lazy" decoding="async" /></figure>
-      <figure><img src="Images/canape.jpeg" alt="Coin lounge" loading="lazy" decoding="async" /></figure>
+  <!-- ═══ GALERIE ═══ -->
+  <section id="gallery" class="section-padded section-dark" aria-label="Galerie photos du studio">
+    <div class="section-inner">
+      <div class="section-label reveal">Espace</div>
+      <h2 class="reveal">Galerie</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item gallery-item--large reveal">
+          <img src="Images/photo1.jpeg" alt="Vue du studio Insomnia" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal reveal-delay-1">
+          <img src="Images/photo2.jpeg" alt="Micro et cabine d'enregistrement" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal reveal-delay-2">
+          <img src="Images/photo3.jpeg" alt="Session d'enregistrement en cours" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal reveal-delay-1">
+          <img src="Images/photo4.jpeg" alt="Guitare du studio" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item reveal reveal-delay-2">
+          <img src="Images/canape.jpeg" alt="Coin lounge du studio" loading="lazy" decoding="async" />
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- 3) Discographie -->
-  <section id="discographie" aria-label="Discographie">
-    <h2>Discographie</h2>
-    <div class="spotify-container">
-      <iframe
-        id="spotify-embed"
-        title="Playlist Spotify"
-        src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
-        loading="lazy"
-        allow="encrypted-media"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+  <!-- ═══ DISCOGRAPHIE ═══ -->
+  <section id="discographie" class="section-padded" aria-label="Discographie du studio">
+    <div class="section-inner">
+      <div class="section-label reveal">Sons</div>
+      <h2 class="reveal">Discographie</h2>
+      <div class="spotify-container reveal reveal-delay-1">
+        <iframe
+          id="spotify-embed"
+          title="Playlist Insomnia Studio sur Spotify"
+          src="https://open.spotify.com/embed/playlist/36tkMon2P1CIW7WusHZX9Q"
+          loading="lazy"
+          allow="encrypted-media"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </section>
 
-  <!-- 4) Références (Or/Platine/Diamant) -->
-  <section id="references" aria-label="Références">
-    <h2>Ils nous font confiance</h2>
+  <!-- ═══ RÉFÉRENCES ═══ -->
+  <section id="references" class="section-padded section-dark" aria-label="Références artistes et labels">
+    <div class="section-inner">
+      <div class="section-label reveal">Confiance</div>
+      <h2 class="reveal">Ils nous font confiance</h2>
 
-    <div class="labels-grid" aria-label="Labels partenaires">
-      <img src="Images/bluesky.webp" alt="Blue Sky" loading="lazy" decoding="async" />
-      <img src="Images/sonymusic.png" alt="Sony Music" loading="lazy" decoding="async" />
-      <img src="Images/universal.png" alt="Universal" loading="lazy" decoding="async" />
-      <img src="Images/warner.png" alt="Warner" loading="lazy" decoding="async" />
-      <img src="Images/rec118.webp" alt="Rec118" loading="lazy" decoding="async" />
-      <img src="Images/ad.png" alt="ADA" loading="lazy" decoding="async" />
-    </div>
+      <div class="labels-grid reveal reveal-delay-1" aria-label="Labels partenaires">
+        <img src="Images/bluesky.webp"   alt="Blue Sky"     loading="lazy" decoding="async" />
+        <img src="Images/sonymusic.png"  alt="Sony Music"   loading="lazy" decoding="async" />
+        <img src="Images/universal.png"  alt="Universal Music" loading="lazy" decoding="async" />
+        <img src="Images/warner.png"     alt="Warner Music" loading="lazy" decoding="async" />
+        <img src="Images/rec118.webp"    alt="Rec118"       loading="lazy" decoding="async" />
+        <img src="Images/ad.png"         alt="ADA"          loading="lazy" decoding="async" />
+      </div>
 
-    <div class="artists-grid" aria-label="Artistes">
-      <figure><img src="Images/himra.jpg" alt="Himra" loading="lazy" decoding="async" /><figcaption>Himra</figcaption></figure>
-      <figure><img src="Images/kerchak.webp" alt="Kerchak" loading="lazy" decoding="async" /><figcaption>Kerchak</figcaption></figure>
-      <figure><img src="Images/dauzi.jpg" alt="Da Uzi" loading="lazy" decoding="async" /><figcaption>Da Uzi</figcaption></figure>
-      <figure><img src="Images/genezio.jpg" alt="Genezio" loading="lazy" decoding="async" /><figcaption>Genezio</figcaption></figure>
-      <figure><img src="Images/lamano.jpg" alt="La Mano" loading="lazy" decoding="async" /><figcaption>La Mano</figcaption></figure>
-      <figure><img src="Images/leostay.avif" alt="Leo Stay Trill" loading="lazy" decoding="async" /><figcaption>Leo Stay Trill</figcaption></figure>
-      <figure><img src="Images/mougli.jpg" alt="Mougli" loading="lazy" decoding="async" /><figcaption>Mougli</figcaption></figure>
-      <figure><img src="Images/cadienelva.jpg" alt="Cadie Nelva"><figcaption>Cadie Nelva</figcaption></figure>
-      <figure><img src="Images/shannon.jpg" alt="Shannon"><figcaption>Shannon</figcaption></figure>
-      <figure><img src="Images/aknose.jpg" alt="Aknose"><figcaption>Aknose</figcaption></figure>
-      <figure><img src="Images/larose.jpg" alt="La Rose"><figcaption>La Rose</figcaption></figure>
-      <figure><img src="Images/zikxo.jpg" alt="Zikxo"><figcaption>Zikxo</figcaption></figure>
+      <div class="artists-grid reveal reveal-delay-2" aria-label="Artistes ayant travaillé au studio">
+        <figure><img src="Images/himra.jpg"       alt="Himra"        loading="lazy" decoding="async" class="zoomable" /><figcaption>Himra</figcaption></figure>
+        <figure><img src="Images/kerchak.webp"    alt="Kerchak"      loading="lazy" decoding="async" class="zoomable" /><figcaption>Kerchak</figcaption></figure>
+        <figure><img src="Images/dauzi.jpg"       alt="Da Uzi"       loading="lazy" decoding="async" class="zoomable" /><figcaption>Da Uzi</figcaption></figure>
+        <figure><img src="Images/genezio.jpg"     alt="Genezio"      loading="lazy" decoding="async" class="zoomable" /><figcaption>Genezio</figcaption></figure>
+        <figure><img src="Images/lamano.jpg"      alt="La Mano"      loading="lazy" decoding="async" class="zoomable" /><figcaption>La Mano</figcaption></figure>
+        <figure><img src="Images/leostay.avif"    alt="Leo Stay Trill" loading="lazy" decoding="async" class="zoomable" /><figcaption>Leo Stay Trill</figcaption></figure>
+        <figure><img src="Images/mougli.jpg"      alt="Mougli"       loading="lazy" decoding="async" class="zoomable" /><figcaption>Mougli</figcaption></figure>
+        <figure><img src="Images/cadienelva.jpg"  alt="Cadie Nelva"  loading="lazy" decoding="async" class="zoomable" /><figcaption>Cadie Nelva</figcaption></figure>
+        <figure><img src="Images/shannon.jpg"     alt="Shannon"      loading="lazy" decoding="async" class="zoomable" /><figcaption>Shannon</figcaption></figure>
+        <figure><img src="Images/aknose.jpg"      alt="Aknose"       loading="lazy" decoding="async" class="zoomable" /><figcaption>Aknose</figcaption></figure>
+        <figure><img src="Images/larose.jpg"      alt="La Rose"      loading="lazy" decoding="async" class="zoomable" /><figcaption>La Rose</figcaption></figure>
+        <figure><img src="Images/zikxo.jpg"       alt="Zikxo"        loading="lazy" decoding="async" class="zoomable" /><figcaption>Zikxo</figcaption></figure>
+      </div>
 
-    </div>
+      <p class="ref-intro reveal">Maher a collaboré avec de nombreux artistes français et internationaux. Le studio a reçu plusieurs certifications :</p>
 
-    <p>Maher a collaboré avec de nombreux artistes français et internationaux reconnus et le studio a reçu plusieurs certifications :</p>
-
-    <div class="certifications">
-      <div class="certif">
-        <img src="Images/disque-or.png" alt="Disque d'or" class="certif-icon or" />
-        <div class="certif-text">
-          <strong>Or</strong>
-          <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" /> Kerchak - Saison 2 (Album)</p>
-          <p><img src="Images/guy2bezbar-ambition.jpg" alt="" class="cover-small" /> Guy2bezbar - Ambition (Album)</p>
+      <div class="certifications">
+        <div class="certif reveal reveal-delay-1">
+          <img src="Images/disque-or.png" alt="Disque d'or" class="certif-icon or" />
+          <div class="certif-text">
+            <strong>Or</strong>
+            <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" loading="lazy" /> Kerchak — Saison 2</p>
+            <p><img src="Images/guy2bezbar-ambition.jpg" alt="" class="cover-small" loading="lazy" /> Guy2bezbar — Ambition</p>
+          </div>
+        </div>
+        <div class="certif reveal reveal-delay-2">
+          <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
+          <div class="certif-text">
+            <strong>Platine</strong>
+            <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" loading="lazy" /> Kerchak — Saison 2</p>
+          </div>
+        </div>
+        <div class="certif reveal reveal-delay-3">
+          <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
+          <div class="certif-text">
+            <strong>Diamant</strong>
+            <p><img src="Images/jeune-et-riche-himra.jpg" alt="" class="cover-small" loading="lazy" /> Himra — Jeune et riche</p>
+          </div>
         </div>
       </div>
-      <div class="certif">
-        <img src="Images/disque-platine.png" alt="Disque de platine" class="certif-icon" />
-        <div class="certif-text">
-          <strong>Platine</strong>
-          <p><img src="Images/saison2-kerchak.jpg" alt="" class="cover-small" /> Kerchak - Saison 2 (Single)</p>
+    </div>
+  </section>
+
+  <!-- ═══ MATÉRIEL ═══ -->
+  <section id="materiel" class="section-padded" aria-label="Matériel du studio">
+    <div class="section-inner">
+      <div class="section-label reveal">Équipements</div>
+      <h2 class="reveal">Matériel</h2>
+      <div class="gear-grid">
+        <article class="gear-col reveal reveal-delay-1">
+          <figure class="gear-figure">
+            <img src="Images/materiel-1.jpeg" alt="Régie Control Room" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Régie</h3>
+          <ul class="gear-items">
+            <li>Surface 20 m² – sécurisée et confortable</li>
+            <li>Ascenseur et accès handicapé</li>
+            <li>Capacité 6 personnes</li>
+            <li>Climatisation et purificateur d'air</li>
+            <li>Machine à café, bouilloire, réfrigérateur</li>
+            <li>Mac Studio M2 · Universal Audio Apollo X6</li>
+            <li>Neve 1073, Distressor, Neve 8108 Vintage 1979</li>
+            <li>Neumann KH310, Avantone MixCubes</li>
+            <li>Micro Shure SM57</li>
+          </ul>
+        </article>
+        <article class="gear-col reveal reveal-delay-2">
+          <figure class="gear-figure">
+            <img src="Images/materiel-2.jpeg" alt="Cabine voix isolée" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Cabine voix</h3>
+          <ul class="gear-items">
+            <li>10 m² isolée & traitée acoustiquement</li>
+            <li>Micro Neumann U87</li>
+            <li>Casque Sony MDR-7506</li>
+            <li>TV recopie d'écran</li>
+            <li>Clavier MIDI connecté à la régie</li>
+            <li>Ambiance lumineuse ajustable</li>
+          </ul>
+        </article>
+        <article class="gear-col reveal reveal-delay-3">
+          <figure class="gear-figure">
+            <img src="Images/materiel-3.jpeg" alt="Instruments disponibles" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Instruments</h3>
+          <ul class="gear-items">
+            <li>Claviers MIDI et contrôleurs</li>
+            <li>Guitares Fender, Gibson, Cort, Gretsch</li>
+            <li>Basse Marcus Miller</li>
+            <li>Ampli guitare et pédales d'effet</li>
+            <li>Stands, câbles, DI box</li>
+            <li>Instruments prêts à l'enregistrement</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ÉQUIPE ═══ -->
+  <section id="equipe" class="section-padded section-dark" aria-label="L'équipe du studio">
+    <div class="section-inner">
+      <div class="section-label reveal">Personnes</div>
+      <h2 class="reveal">L'équipe</h2>
+      <div class="team-grid">
+
+        <!-- Maherito -->
+        <div
+          class="team-card team-card--founder reveal"
+          tabindex="0"
+          role="button"
+          aria-label="Voir le profil de Maherito"
+          data-name="Maherito"
+          data-role="Ingénieur du son &amp; Fondateur"
+          data-photo="Images/maherito.jpg"
+          data-desc="Maherito est l'ingénieur du son et fondateur d'Insomnia Studio. Passionné par la production musicale, il maîtrise l'enregistrement, le mixage et le mastering. Il a travaillé avec des artistes certifiés Or, Platine et Diamant (Himra, Kerchak, Guy2bezbar…)."
+        >
+          <div class="team-photo-wrap">
+            <img src="Images/maherito.jpg" alt="Maherito, fondateur et ingénieur du son" loading="lazy" decoding="async" />
+          </div>
+          <div class="team-info">
+            <h4>Maherito</h4>
+            <p>Ingénieur du son &amp; Fondateur</p>
+            <span class="team-badge">Fondateur</span>
+          </div>
+        </div>
+
+        <!-- Nida -->
+        <div
+          class="team-card reveal reveal-delay-1"
+          tabindex="0"
+          role="button"
+          aria-label="Voir le profil de Nida"
+          data-name="Nida"
+          data-role="Compositeur"
+          data-photo="Images/nida.jpg"
+          data-desc="Nida est compositeur au sein d'Insomnia Studio. Il crée des productions originales, des instrumentaux et travaille en étroite collaboration avec les artistes pour donner vie à leurs univers musicaux."
+        >
+          <div class="team-photo-wrap">
+            <img src="Images/nida.jpg" alt="Nida, compositeur" loading="lazy" decoding="async" />
+          </div>
+          <div class="team-info">
+            <h4>Nida</h4>
+            <p>Compositeur</p>
+          </div>
+        </div>
+
+        <!-- Le J -->
+        <div
+          class="team-card reveal reveal-delay-2"
+          tabindex="0"
+          role="button"
+          aria-label="Voir le profil de Le J"
+          data-name="Le J"
+          data-role="Compositeur &amp; Ingénieur du son"
+          data-photo="Images/leJ.jpg"
+          data-desc="Le J est compositeur et ingénieur du son. Polyvalent, il intervient aussi bien sur la création musicale que sur les phases de mixage et d'enregistrement, assurant un résultat sonore impeccable."
+        >
+          <div class="team-photo-wrap">
+            <img src="Images/leJ.jpg" alt="Le J, compositeur et ingénieur du son" loading="lazy" decoding="async" />
+          </div>
+          <div class="team-info">
+            <h4>Le J</h4>
+            <p>Compositeur &amp; Ingénieur du son</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modale équipe -->
+  <div id="team-modal" class="team-modal-overlay" role="dialog" aria-modal="true" aria-label="Profil du membre" aria-hidden="true">
+    <div class="team-modal">
+      <button class="team-modal-close" id="modal-close" aria-label="Fermer">&#10005;</button>
+      <img src="" alt="" class="team-modal-photo" id="modal-photo" />
+      <div class="team-modal-body">
+        <h3 id="modal-name"></h3>
+        <p class="team-modal-role" id="modal-role"></p>
+        <p class="team-modal-desc" id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PASS CULTURE ═══ -->
+  <section id="pass-culture" class="section-padded pass-culture-section" aria-label="Offre Pass Culture Insomnia Studio">
+    <div class="section-inner">
+      <div class="section-label reveal">Accessibilité</div>
+      <h2 class="reveal">Pass Culture</h2>
+      <div class="pass-culture-inner">
+        <div class="pass-culture-text reveal reveal-delay-1">
+          <p>
+            Insomnia Studio est <strong>accrédité Pass Culture</strong>. Tu disposes de ton crédit Pass Culture ? Tu peux l'utiliser directement pour réserver ta session d'enregistrement chez nous.
+          </p>
+          <p>
+            C'est simple : réserve via l'application Pass Culture, viens au studio, et crée ta musique dans un cadre professionnel sans avancer de frais.
+          </p>
+          <p>
+            La session d'enregistrement est disponible à <strong>50&nbsp;€ l'heure</strong> via Pass Culture.
+          </p>
+          <a
+            href="https://passculture.app/offre/387641124?utm_gen=product&utm_campaign=share_offer&utm_medium=social_media"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-pass"
+            aria-label="Réserver une session via Pass Culture (s'ouvre dans un nouvel onglet)"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="20" height="20">
+              <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>
+            </svg>
+            Réserver via Pass Culture
+          </a>
+        </div>
+        <div class="pass-culture-badge reveal reveal-delay-2">
+          <!-- Logo Pass Culture : si passculture.png existe, afficher l'image ; sinon SVG fallback -->
+          <a
+            href="https://passculture.app/offre/387641124?utm_gen=product&utm_campaign=share_offer&utm_medium=social_media"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pass-logo-wrap"
+            aria-label="Voir l'offre Pass Culture"
+          >
+            <img
+              src="Images/passculture.png"
+              alt="Logo Pass Culture"
+              class="pass-logo-img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+            />
+            <!-- SVG fallback affiché si l'image n'existe pas -->
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" class="pass-logo-svg" style="display:none;">
+              <circle cx="50" cy="50" r="46" fill="none" stroke="#e1003c" stroke-width="3.5"/>
+              <text x="50" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#e1003c">pass</text>
+              <text x="50" y="60" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#e1003c">Culture</text>
+            </svg>
+          </a>
         </div>
       </div>
-      <div class="certif">
-        <img src="Images/disque-diamant.png" alt="Disque de diamant" class="certif-icon diamant" />
-        <div class="certif-text">
-          <strong>Diamant</strong>
-          <p><img src="Images/jeune-et-riche-himra.jpg" alt="" class="cover-small" /> Himra - Jeune et riche (Album)</p>
+    </div>
+  </section>
+
+  <!-- ═══ TARIFS ═══ -->
+  <section id="tarifs" class="section-padded" aria-label="Tarifs du studio Insomnia">
+    <div class="section-inner">
+      <div class="section-label reveal">Prix</div>
+      <h2 class="reveal">Nos Tarifs Studio</h2>
+      <div class="pricing-grid">
+
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-card-top">
+            <h3>Enregistrement</h3>
+            <div class="price-block">
+              <span class="price-main">50 <small>€ HT</small></span>
+              <span class="price-sub">60 € TTC / heure</span>
+            </div>
+          </div>
+          <ul class="pricing-rules">
+            <li>Minimum 2h de réservation</li>
+            <li>Studio non fumeur</li>
+            <li>Max 4 personnes (artiste inclus)</li>
+            <li>Le retard n'est pas rattrapé</li>
+          </ul>
+          <small class="small-text">* Ne concerne pas les sessions avec Maherito</small>
+        </div>
+
+        <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+          <div class="pricing-card-top">
+            <h3>Mixage</h3>
+            <div class="price-block">
+              <span class="price-main">350 <small>€ HT</small></span>
+              <span class="price-sub">par titre</span>
+            </div>
+          </div>
+          <p class="pricing-note">250 € HT par titre si enregistré au studio</p>
+        </div>
+
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-card-top">
+            <h3>Mastering</h3>
+            <div class="price-block">
+              <span class="price-main">50 <small>€ HT</small></span>
+              <span class="price-sub">par titre</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-card--cta reveal reveal-delay-2">
+          <div class="pricing-card-top">
+            <h3>Production</h3>
+          </div>
+          <p class="contact-text">Devis personnalisé sur demande</p>
+          <a href="#contact" class="btn btn-primary">Nous contacter</a>
+        </div>
+
+      </div>
+      <p class="disclaimer reveal">Nous ne sommes pas responsables des sessions. Pensez à vous munir d'un disque dur pour récupérer vos fichiers.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="section-padded section-dark" aria-label="Contact et réservation">
+    <div class="section-inner">
+      <div class="section-label reveal">Nous écrire</div>
+      <h2 class="reveal">Contact</h2>
+      <div class="contact-layout">
+        <form id="contact-form" class="styled-form reveal reveal-delay-1" action="https://formspree.io/f/xnnoplkl" method="POST" novalidate>
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" placeholder="Votre email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Envoyer</button>
+          <p id="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-aside reveal reveal-delay-2">
+          <div class="contact-cta-group">
+            <p class="contact-cta-label">Contact direct</p>
+            <a href="tel:+33603818567" class="btn btn-contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18">
+                <path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+              </svg>
+              SMS / WhatsApp
+            </a>
+            <a href="mailto:maherito.engineer@gmail.com" class="btn btn-contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18">
+                <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              Email
+            </a>
+          </div>
+          <div class="contact-info-block">
+            <p><strong>+33 6 03 81 85 67</strong></p>
+            <p>maherito.engineer@gmail.com</p>
+            <p>Boulogne-Billancourt, Île-de-France</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4.5) Matériel -->
-  <section id="materiel" aria-label="Matériel du studio">
-    <h2>Matériel</h2>
-
-    <div class="gear-grid">
-      <!-- Col 1 : Control Room / Régie -->
-      <article class="gear-col">
-        <figure class="gear-figure">
-          <img src="Images/materiel-1.jpeg" alt="Régie / Control Room" loading="lazy" decoding="async" />
-        </figure>
-        <ul class="gear-items">
-          <li>Surface de 20 m² – sécurisée et confortable</li>
-          <li>Ascenseur et accès handicapé</li>
-          <li>Capacité de 6 personnes</li>
-          <li>Climatisation et purificateur d’air</li>
-          <li>Machine à café, bouilloire, réfrigérateur</li>
-          <li>Mac Studio M2 – Universal Audio Apollo X6</li>
-          <li>Neve 1073, Distressor, Neve 8108 Vintage 1979</li>
-          <li>Enceintes Neumann KH310, Avantone MixCubes</li>
-          <li>Micro Shure SM57</li>
-        </ul>
-      </article>
-
-      <!-- Col 2 : Cabine voix -->
-      <article class="gear-col">
-        <figure class="gear-figure">
-          <img src="Images/materiel-2.jpeg" alt="Cabine voix" loading="lazy" decoding="async" />
-        </figure>
-        <ul class="gear-items">
-          <li>Cabine de 10 m² isolée et traitée acoustiquement</li>
-          <li>Micro Neumann U87</li>
-          <li>Casque Sony MDR-7506</li>
-          <li>Télévision de recopie d’écran</li>
-          <li>Clavier MIDI connecté à la régie</li>
-          <li>Ambiance lumineuse ajustable</li>
-        </ul>
-      </article>
-
-      <!-- Col 3 : Instruments -->
-      <article class="gear-col">
-        <figure class="gear-figure">
-          <img src="Images/materiel-3.jpeg" alt="Instruments du studio" loading="lazy" decoding="async" />
-        </figure>
-        <ul class="gear-items">
-          <li>Claviers MIDI et contrôleurs</li>
-          <li>Guitares Fender, Gibson, Cort, Gretsch</li>
-          <li>Basse Marcus Miller</li>
-          <li>Ampli guitare et pédales d’effet</li>
-          <li>Accessoires studio : stands, câbles, DI box</li>
-          <li>Instruments toujours entretenus et prêts à l’enregistrement</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- 5) L'équipe -->
-  <section id="equipe" aria-label="L'équipe">
-    <h2>L'équipe</h2>
-    <div class="team-grid">
-  <div class="team-member">
-    <img src="Images/maherito.jpg" alt="Maherito" class="zoomable">
-    <h4>Maherito</h4>
-    <p>Ingénieur du son &amp; Fondateur</p>
-  </div>
-</div>
-<div class="team-grid">
-  <div class="team-member">
-    <img src="Images/nida.jpg" alt="Nida" class="zoomable">
-    <h4>Nida</h4>
-    <p>Compositeur</p>
-  </div>
-  <div class="team-member">
-    <img src="Images/leJ.jpg" alt="Le J" class="zoomable">
-    <h4>Le J</h4>
-    <p>Compositeur &amp; Ingénieur du son</p>
-  </div>
-</div>
-  </section>
-
-  <!-- 6) Tarifs -->
-  <section id="tarifs" aria-label="Tarifs">
-    <h2>Nos Tarifs Studio</h2>
-    <div class="pricing">
-      <div class="pricing-card">
-        <h2>Enregistrement</h2>
-        <p class="price">50€ HT <span>/ heure</span></p>
-        <p class="price small">60€ TTC <span>/ heure</span></p>
-        <small class="small-text">* ne concerne pas les sessions avec Maherito</small>
-        <ul>
-          <li>Minimum 2h de réservation</li>
-          <li>Studio non fumeur</li>
-          <li>Max 4 personnes (artiste inclus)</li>
-          <li>Le retard n'est pas rattrapé</li>
-        </ul>
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <img src="Images/logo.png" alt="Logo Insomnia Studio" class="footer-logo" loading="lazy" decoding="async" />
+      <nav class="footer-nav" aria-label="Liens rapides footer">
+        <a href="#apropos">À propos</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#pass-culture">Pass Culture</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank" rel="noopener noreferrer" aria-label="Insomnia Studio sur Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22">
+            <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
       </div>
-
-      <div class="pricing-card">
-        <h2>Mixage</h2>
-        <p class="price">350€ HT <span>par titre</span></p>
-        <p class="price small">250€ HT <span>par titre si enregistré au studio</span></p>
-      </div>
-
-      <div class="pricing-card">
-        <h2>Mastering</h2>
-        <p class="price">50€ HT</p>
-      </div>
-
-      <div class="pricing-card contact-us">
-        <h2>Production</h2>
-        <p class="contact-text">Nous contacter pour un devis personnalisé</p>
-        <a href="#contact" class="cta-btn">Contactez-nous</a>
-      </div>
-    </div>
-  </section>
-
-  <p class="disclaimer">Nous ne sommes pas responsables des sessions. Pensez à vous munir d’un disque dur pour récupérer vos fichiers.</p>
-
-  <!-- 7) Contact -->
-  <section id="contact" class="contact-info" aria-label="Contact">
-    <h2>Contact</h2>
-
-    <form id="contact-form" class="styled-form" action="https://formspree.io/f/xnnoplkl" method="POST" novalidate>
-      <div class="form-group">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="_replyto" placeholder="Votre email" required />
-      </div>
-      <div class="form-group">
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
-      </div>
-      <button type="submit" class="styled-btn">Envoyer</button>
-      <p id="form-message" role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="contacts-buttons" aria-label="Moyens de contact rapides">
-      <a href="tel:+33603818567" class="contact-btn">SMS / WhatsApp</a>
-      <a href="mailto:maherito.engineer@gmail.com" class="contact-btn">Email</a>
-    </div>
-  </section>
-
-  <footer>
-    <div>
-      <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank" rel="noopener">
-        <img src="Images/ig-icon.png" alt="Instagram" loading="lazy" decoding="async" />
-      </a>
+      <p class="footer-copy">&copy; 2026 Insomnia Studio &mdash; Tous droits réservés</p>
     </div>
   </footer>
 
-  <!-- JS : fonctionnalités complètes + correctifs -->
-<script defer>
-document.addEventListener("DOMContentLoaded", () => {
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+  (function() {
+    "use strict";
 
-  /* =============================
-     1. Scroll spy (menu actif)
-  ============================= */
-  window.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const menuLinks = document.querySelectorAll("nav a");
+    /* ── 1. Loader ── */
+    window.addEventListener("load", function() {
+      var loader = document.getElementById("page-loader");
+      if (loader) {
+        setTimeout(function() { loader.classList.add("hidden"); }, 400);
+      }
+      /* Parallax hero bg */
+      var heroBg = document.querySelector(".hero-bg");
+      if (heroBg) { heroBg.classList.add("loaded"); }
+    });
 
-    if (window.scrollY === 0) {
-      menuLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === "#apropos");
-      });
-      return;
-    }
+    document.addEventListener("DOMContentLoaded", function() {
 
-    sections.forEach(section => {
-      const id = section.getAttribute("id");
-      const title = section.querySelector("h2");
-      if (title) {
-        const titleRect = title.getBoundingClientRect();
-        if (titleRect.top >= 0 && titleRect.top < 100) {
-          menuLinks.forEach(link => {
-            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      /* ── 2. Header scroll ── */
+      var header = document.getElementById("site-header");
+      window.addEventListener("scroll", function() {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      }, { passive: true });
+
+      /* ── 3. Reveal on scroll ── */
+      if ("IntersectionObserver" in window) {
+        var revealObs = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
           });
-        }
-      }
-    });
-  });
+        }, { rootMargin: "0px 0px -60px 0px", threshold: 0.1 });
 
-  /* =============================
-     2. Zoom sur les images (.zoomable)
-  ============================= */
-  document.querySelectorAll(".zoomable").forEach(img => {
-    img.addEventListener("click", () => {
-      const overlay = document.createElement("div");
-      overlay.style.cssText = `
-        position:fixed;inset:0;background:rgba(0,0,0,.8);
-        display:flex;align-items:center;justify-content:center;
-        cursor:zoom-out;z-index:10000;
-      `;
-      const zoomImg = document.createElement("img");
-      zoomImg.src = img.src;
-      zoomImg.style.cssText = `
-        max-width:90vw;max-height:90vh;border-radius:12px;
-        box-shadow:0 8px 40px rgba(0,0,0,.9);
-      `;
-      overlay.appendChild(zoomImg);
-      document.body.appendChild(overlay);
-      overlay.addEventListener("click", () => overlay.remove());
-    });
-  });
-
-  /* =============================
-     3. Formulaire (Formspree AJAX)
-  ============================= */
-  const form = document.getElementById("contact-form");
-  if (form) {
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { "Accept": "application/json" }
-      })
-        .then(response => {
-          const target = document.getElementById("form-message");
-          if (response.ok) {
-            target.textContent = "Merci pour votre message !";
-            form.reset();
-          } else {
-            response.json().then(data => {
-              target.textContent = data?.errors
-                ? data.errors.map(e => e.message).join(", ")
-                : "Erreur lors de l'envoi.";
-            });
-          }
-        })
-        .catch(() => {
-          document.getElementById("form-message").textContent =
-            "Erreur réseau, veuillez réessayer.";
+        document.querySelectorAll(".reveal").forEach(function(el) {
+          revealObs.observe(el);
         });
-    });
-  }
-
-  /* =============================
-     4. Menu mobile accessible
-  ============================= */
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true" || false;
-      menuToggle.setAttribute("aria-expanded", !expanded);
-      navMenu.setAttribute("aria-hidden", expanded);
-    });
-  }
-
-  /* =============================
-     5. Navigation fluide sans hash dans l’URL
-  ============================= */
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
-  navLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      const id = link.getAttribute("href").slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-
-      // Scroll fluide
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      // Supprime le hash immédiatement
-      if (history.replaceState) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
+      } else {
+        document.querySelectorAll(".reveal").forEach(function(el) {
+          el.classList.add("visible");
+        });
       }
 
-      // Accessibilité : focus temporaire
-      target.setAttribute("tabindex", "-1");
-      target.focus({ preventScroll: true });
-      setTimeout(() => target.removeAttribute("tabindex"), 1000);
-
-      // Ferme le menu mobile
-      if (window.innerWidth <= 600 && menuToggle && navMenu) {
-        menuToggle.setAttribute("aria-expanded", "false");
-        navMenu.setAttribute("aria-hidden", "true");
+      /* ── 4. Count-up stats ── */
+      function countUp(el) {
+        var target = parseInt(el.dataset.count, 10);
+        if (isNaN(target) || el.dataset.format === "year") {
+          el.classList.add("visible");
+          return;
+        }
+        var suffix = el.dataset.suffix || "";
+        var duration = 1400;
+        var start = performance.now();
+        function step(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(ease * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
       }
-    });
-  });
 
-  // Nettoie aussi le hash si on arrive avec une ancre externe
-  if (location.hash && history.replaceState) {
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-  }
+      if ("IntersectionObserver" in window) {
+        var statsObs = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              countUp(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
 
-  /* =============================
-     6. Spotify : robustesse du lecteur
-  ============================= */
-  (function(){
-    const iframe = document.getElementById("spotify-embed");
-    if (!iframe) return;
+        document.querySelectorAll(".stat-num[data-count]").forEach(function(el) {
+          statsObs.observe(el);
+        });
+      }
 
-    const fallback = document.getElementById("spotify-fallback");
-    const retryBtn = document.getElementById("spotify-retry");
+      /* ── 5. Scroll spy ── */
+      var navLinks = document.querySelectorAll("#nav-menu a[href^='#']");
+      var spySections = document.querySelectorAll("section[id]");
+      if ("IntersectionObserver" in window && navLinks.length) {
+        var spyObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              navLinks.forEach(function(link) {
+                link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+              });
+            }
+          });
+        }, { rootMargin: "-38% 0px -58% 0px" });
+        spySections.forEach(function(s) { spyObs.observe(s); });
+      }
 
-    let loaded = false;
-    iframe.addEventListener("load", () => {
-      loaded = true;
-      if (fallback) fallback.hidden = true;
-    });
+      /* ── 6. Burger menu ── */
+      var menuToggle = document.getElementById("menu-toggle");
+      var navMenu = document.getElementById("nav-menu");
+      if (menuToggle && navMenu) {
+        function closeMenu() {
+          menuToggle.setAttribute("aria-expanded", "false");
+          navMenu.setAttribute("aria-hidden", "true");
+          menuToggle.classList.remove("open");
+          document.body.classList.remove("menu-open");
+        }
+        function openMenu() {
+          menuToggle.setAttribute("aria-expanded", "true");
+          navMenu.setAttribute("aria-hidden", "false");
+          menuToggle.classList.add("open");
+          document.body.classList.add("menu-open");
+        }
+        menuToggle.addEventListener("click", function() {
+          menuToggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
+        });
+        navMenu.querySelectorAll("a").forEach(function(link) {
+          link.addEventListener("click", closeMenu);
+        });
+        document.addEventListener("click", function(e) {
+          if (!header.contains(e.target) && navMenu.getAttribute("aria-hidden") === "false") closeMenu();
+        });
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") closeMenu();
+        });
+      }
 
-    // Affiche un fallback si ça ne charge pas après 6s
-    setTimeout(() => {
-      if (!loaded && fallback) fallback.hidden = false;
-    }, 6000);
-
-    // Bouton “réessayer”
-    if (retryBtn) {
-      retryBtn.addEventListener("click", () => {
-        loaded = false;
-        fallback.hidden = true;
-        const src = iframe.getAttribute("src") || "";
-        iframe.setAttribute("src", "about:blank");
-        setTimeout(() => iframe.setAttribute("src", src), 50);
-        setTimeout(() => {
-          if (!loaded && fallback) fallback.hidden = false;
-        }, 6000);
+      /* ── 7. Smooth scroll ── */
+      document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener("click", function(e) {
+          var id = link.getAttribute("href").slice(1);
+          if (!id) return;
+          var target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (history.replaceState) {
+            history.replaceState(null, "", window.location.pathname + window.location.search);
+          }
+        });
       });
-    }
-  })();
 
-}); // <-- fin DOMContentLoaded
-</script>
+      /* ── 8. Zoom overlay ── */
+      function openZoom(src, alt) {
+        var overlay = document.createElement("div");
+        overlay.className = "zoom-overlay";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-modal", "true");
+        overlay.setAttribute("aria-label", "Image agrandie");
+        var zImg = document.createElement("img");
+        zImg.src = src;
+        zImg.alt = alt || "";
+        overlay.appendChild(zImg);
+        document.body.appendChild(overlay);
+        requestAnimationFrame(function() { overlay.classList.add("visible"); });
+        function close() {
+          overlay.classList.remove("visible");
+          setTimeout(function() { overlay.remove(); }, 280);
+          document.removeEventListener("keydown", handleKey);
+        }
+        function handleKey(e) { if (e.key === "Escape") close(); }
+        overlay.addEventListener("click", close);
+        document.addEventListener("keydown", handleKey);
+      }
+
+      document.querySelectorAll(".zoomable, .gallery-item img, .artists-grid img").forEach(function(img) {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", function() { openZoom(img.src, img.alt); });
+        img.addEventListener("keydown", function(e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openZoom(img.src, img.alt); }
+        });
+      });
+
+      /* ── 9. Équipe modales ── */
+      var modal = document.getElementById("team-modal");
+      var modalClose = document.getElementById("modal-close");
+      var modalPhoto = document.getElementById("modal-photo");
+      var modalName  = document.getElementById("modal-name");
+      var modalRole  = document.getElementById("modal-role");
+      var modalDesc  = document.getElementById("modal-desc");
+
+      function openTeamModal(card) {
+        modalPhoto.src    = card.dataset.photo || "";
+        modalPhoto.alt    = card.dataset.name  || "";
+        modalName.textContent  = card.dataset.name || "";
+        modalRole.innerHTML    = card.dataset.role || "";
+        modalDesc.textContent  = card.dataset.desc || "";
+        modal.setAttribute("aria-hidden", "false");
+        modal.classList.add("open");
+        document.body.classList.add("menu-open");
+        if (modalClose) setTimeout(function() { modalClose.focus(); }, 100);
+      }
+      function closeTeamModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("menu-open");
+      }
+
+      document.querySelectorAll(".team-card").forEach(function(card) {
+        card.addEventListener("click", function() { openTeamModal(card); });
+        card.addEventListener("keydown", function(e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openTeamModal(card); }
+        });
+      });
+      if (modalClose) modalClose.addEventListener("click", closeTeamModal);
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) closeTeamModal();
+      });
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && modal.classList.contains("open")) closeTeamModal();
+      });
+
+      /* ── 10. Formulaire AJAX ── */
+      var form = document.getElementById("contact-form");
+      if (form) {
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          var btn = form.querySelector("button[type='submit']");
+          var msg = document.getElementById("form-message");
+          btn.disabled = true;
+          btn.textContent = "Envoi\u2026";
+          fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          })
+            .then(function(res) {
+              if (res.ok) {
+                msg.className = "form-success";
+                msg.textContent = "Merci\u00a0! Nous vous r\u00e9pondrons rapidement.";
+                form.reset();
+              } else {
+                return res.json().then(function(data) {
+                  msg.className = "form-error";
+                  msg.textContent = data && data.errors
+                    ? data.errors.map(function(err) { return err.message; }).join(", ")
+                    : "Erreur lors de l'envoi. R\u00e9essayez.";
+                });
+              }
+            })
+            .catch(function() {
+              msg.className = "form-error";
+              msg.textContent = "Erreur r\u00e9seau. Veuillez r\u00e9essayer.";
+            })
+            .finally(function() {
+              btn.disabled = false;
+              btn.textContent = "Envoyer";
+            });
+        });
+      }
+
+      /* ── 12. Spotify fallback ── */
+      (function() {
+        var iframe = document.getElementById("spotify-embed");
+        if (!iframe) return;
+        var loaded = false;
+        iframe.addEventListener("load", function() { loaded = true; });
+        setTimeout(function() {
+          if (!loaded) {
+            var fb = document.createElement("p");
+            fb.textContent = "Le lecteur Spotify n'a pas pu se charger. Retrouvez-nous directement sur Spotify.";
+            fb.style.cssText = "text-align:center;color:var(--text-muted);padding:24px";
+            iframe.parentNode.replaceChild(fb, iframe);
+          }
+        }, 7000);
+      })();
+
+    }); /* end DOMContentLoaded */
+
+  })();
+  </script>
 </body>
 </html>
+

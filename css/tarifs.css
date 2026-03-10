@@ -1,242 +1,76 @@
-.container, #tarifs {
-  max-width: 960px;
-  margin: 48px auto;
-  padding: 0 24px;
+/* ============================================================
+   INSOMNIA STUDIO — tarifs.css
+   Styles spécifiques à la page tarifs.html
+   ============================================================ */
+
+/* ── Page Hero ── */
+.page-hero {
+  padding: calc(var(--header-h) + 60px) var(--inner-pad) 72px;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(91,141,238,.1) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-surface) 100%);
+  border-bottom: 1px solid var(--glass-border);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Titres */
-h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
-
-h2 {
-  font-size: 2.8em;
-  margin-bottom: 24px;
-  color: #7fb0ff;
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(91,141,238,.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124,106,245,.06) 0%, transparent 50%);
+  pointer-events: none;
 }
-h3 {
-  font-size: 1.8em;
+.page-hero-inner {
+  max-width: var(--inner-max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.page-hero-inner .section-label {
+  margin-bottom: 18px;
+}
+.page-hero-inner h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--text) 0%, rgba(240,240,248,.55) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 16px;
-  color: #7fb0ff;
+}
+.page-hero-inner p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-/* =========================
-   Grille des cartes Tarifs
-   - 2 colonnes sur desktop
-   - 1 colonne sur mobile
-   ========================= */
-#tarifs .pricing{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr)); /* 2 colonnes */
-  gap: 24px;
-  max-width: 980px;                  /* rendu premium centré */
-  margin: 0 auto 48px;
-  align-items: stretch;              /* mêmes hauteurs */
+/* ── Pricing grid override pour page dédiée ── */
+.pricing-grid--page {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-@media (max-width: 700px){
-  #tarifs .pricing{
-    grid-template-columns: 1fr;      /* 1 colonne sur mobile */
-    gap: 18px;
-    max-width: 560px;
-  }
-}
-
-/* Cartes */
-#tarifs .pricing-card{
-  background: #1e1e1e;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.6);
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  text-align: center;
-  transition: box-shadow 0.3s;
-}
-#tarifs .pricing-card:hover { box-shadow: 0 10px 20px rgba(0, 0, 0, 1); }
-
-#tarifs .pricing-card h2{
-  margin: 0 0 12px;
-  font-family: 'Montserrat', Arial, sans-serif;
-  color: #7fb0ff;
-}
-
-/* =========================
-   Prix (uniformisés)
-   - même taille, même bleu
-   ========================= */
-.price,
-.price.small{
-  font-size: 2em;            /* même taille */
-  font-weight: 700;
-  color: #6898e2;            /* même bleu */
-  margin: 6px 0;
-}
-
-.price span,
-.price.small span{
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #999;               /* / heure plus discret */
-}
-
-/* Listes (règles/info) */
-#tarifs .pricing-card ul{
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0;
-  color: #aaa;
-  font-size: 1em;
-  line-height: 1.5;
+/* ── contact-rapide ── */
+.tarifs-contact {
   text-align: center;
 }
-#tarifs .pricing-card ul li{ margin-bottom: 6px; }
-
-.small-text { font-size: 0.8em; }
-
-/* =========================
-   Certifications (inchangé)
-   ========================= */
-.certifications{
+.tarifs-contact-btns {
   display: flex;
+  gap: 14px;
   justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
   flex-wrap: wrap;
 }
-.certif{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 220px;
-  color: #aaa;
-  text-align: center;
-}
-.certif-text p{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9em;
-  margin: 6px 0;
-  justify-content: center;
-}
-.cover-small{
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.5);
-}
-.certif-icon{
-  height: 90px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.7));
-}
-.certif-icon.or{ height: 90px; }
-.certif-icon.diamant{ height: 95px; }
 
-/* =========================
-   Spotify (laisse tel quel)
-   ========================= */
-.spotify-container iframe{
-  width: 110%;
-  max-width: 1300px;
-}
-
-/* =========================
-   Finitions responsive cartes
-   ========================= */
-@media (max-width: 600px){
-  #tarifs .pricing-card{
-    border-radius: 12px;
-    padding: 20px 18px;
-  }
-}
-
-/* === Correction centrage cartes tarifs sur mobile === */
-@media (max-width: 700px) {
-  #tarifs .pricing {
-    justify-items: center;   /* centre les cartes dans la grille */
-    margin: 0 auto;          /* centre la grille elle-même */
-    padding: 0;              /* retire tout éventuel décalage horizontal */
-  }
-
-  #tarifs .pricing-card {
-    width: 100%;
-    max-width: 420px;        /* largeur propre et centrée */
-  }
-}
-
-/* Centrage parfait des cartes Tarifs sur mobile */
-@media (max-width: 700px){
-  #tarifs { padding-inline: 12px; }         /* marge symétrique */
-  #tarifs .pricing{
-    grid-template-columns: 1fr;             /* 1 colonne */
-    justify-items: center;                   /* centre l’item dans la cellule */
-    align-items: stretch;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;                              /* évite tout décalage */
-  }
-  #tarifs .pricing-card{
-    width: 100%;
-    max-width: 420px;                        /* largeur agréable */
-    margin: 0 auto;                          /* ceinture + bretelles */
-  }
-}
-
-
-.artists-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-header {
-  background-color: #121212; /* même fond que le reste du site */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-/* Mobile : grille bien centrée, 1 carte par ligne, largeur contrôlée */
-@media (max-width: 700px){
-  #tarifs .pricing{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    justify-items: center;       /* centre la/les cartes */
-    gap: 18px !important;
-    padding-inline: 12px;        /* évite tout débord à droite */
-  }
-
-  #tarifs .pricing-card{
-    width: 100%;
-    max-width: 560px;            /* borne la largeur pour Android */
-    border-radius: 12px;
-    padding: 18px;
-    box-sizing: border-box;      /* sécurité */
-  }
-
-  /* Texte interne : jamais de débord horizontal */
-  #tarifs .pricing-card *{
-    overflow-wrap: break-word;
-    word-break: break-word; /* vieilles versions Android */
-  }
-}
-
-/* Harmonisation des prix (même taille/couleur) — au cas où */
-#tarifs .pricing-card .price,
-#tarifs .pricing-card .price.small{
-  font-size: 1.6em;     /* même taille */
-  font-weight: 700;
-  color: #6898e2;       /* même bleu */
-  margin: 6px 0;
-}
-#tarifs .pricing-card .price span,
-#tarifs .pricing-card .price.small span{
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #999;
+@media (max-width: 680px) {
+  .page-hero { padding: calc(var(--header-h) + 40px) 18px 56px; }
+  .pricing-grid--page { grid-template-columns: 1fr; }
+  .tarifs-contact-btns { flex-direction: column; align-items: center; }
+  .tarifs-contact-btns .btn { width: 100%; max-width: 300px; justify-content: center; }
 }
