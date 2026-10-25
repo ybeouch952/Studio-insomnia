@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://insomniastudio.fr/sitemap.xml
+Sitemap: https://www.insomniastudio.fr/sitemap.xml

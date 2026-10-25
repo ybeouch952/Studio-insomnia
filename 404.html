@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page introuvable — Insomnia Studio</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#080810" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/Images/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/Images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300..700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .notfound {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 40px var(--inner-pad);
+      text-align: center;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(91,141,238,.12) 0%, transparent 70%),
+        var(--bg);
+    }
+    .notfound-logo { height: 44px; width: auto; opacity: .8; margin-bottom: 12px; }
+    .notfound-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 24vw, 11rem);
+      line-height: .85;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .notfound p { color: var(--text-muted); max-width: 42ch; }
+    .notfound-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <main class="notfound">
+    <a href="/" aria-label="Insomnia Studio — Accueil">
+      <img src="/Images/logo.png" alt="Logo Insomnia Studio" class="notfound-logo" />
+    </a>
+    <span class="notfound-code">404</span>
+    <h1>Cette piste n'existe pas</h1>
+    <p>La page que vous cherchez a peut-être été déplacée ou supprimée.</p>
+    <div class="notfound-actions">
+      <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+      <a href="/#contact" class="btn btn-ghost">Nous contacter</a>
+    </div>
+  </main>
+</body>
+</html>

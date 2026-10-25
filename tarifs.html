@@ -5,15 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarifs — Insomnia Studio Boulogne-Billancourt</title>
   <meta name="description" content="Tarifs d'Insomnia Studio : enregistrement 50 € HT/h, mixage 350 € HT/titre, mastering 50 € HT/titre. Accrédité Pass Culture. Boulogne-Billancourt." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://insomniastudio.fr/tarifs.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.insomniastudio.fr/tarifs.html" />
   <meta property="og:type"  content="website" />
+  <meta property="og:site_name" content="Insomnia Studio" />
   <meta property="og:title" content="Tarifs — Insomnia Studio" />
-  <meta property="og:description" content="Enregistrement, mixage, mastering, production. Accrédité Pass Culture." />
-  <meta property="og:url"   content="https://insomniastudio.fr/tarifs.html" />
+  <meta property="og:description" content="Enregistrement 50 € HT/h, mixage 350 € HT/titre, mastering 50 € HT/titre. Accrédité Pass Culture." />
+  <meta property="og:url"   content="https://www.insomniastudio.fr/tarifs.html" />
+  <meta property="og:image" content="https://www.insomniastudio.fr/Images/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.insomniastudio.fr/Images/og-image.jpg" />
   <meta name="theme-color"  content="#080810" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/Images/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/Images/apple-touch-icon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +32,8 @@
   <link rel="stylesheet" href="css/tarifs.css" />
 </head>
 <body>
+
+  <a href="#tarifs-detail" class="skip-link">Aller au contenu</a>
 
   <!-- LOADER -->
   <div id="page-loader" role="status" aria-label="Chargement">
@@ -40,19 +50,7 @@
         <img src="Images/logo.png" alt="Logo Insomnia Studio" class="logo" decoding="async" fetchpriority="high" />
       </a>
     </div>
-    <nav id="nav-menu" aria-label="Navigation" aria-hidden="true">
-      <a href="index.html">Accueil</a>
-      <a href="index.html#apropos">À propos</a>
-      <a href="index.html#pass-culture">Pass Culture</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="tarifs.html" class="active">Tarifs</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-      <button id="dark-toggle" aria-label="Basculer le thème" title="Thème">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
-        </svg>
-      </button>
+    <div class="header-right">
       <button id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
         <span class="burger-bar"></span>
         <span class="burger-bar"></span>
@@ -60,6 +58,17 @@
       </button>
     </div>
   </header>
+
+  <!-- Nav en dehors du header pour éviter le bug iOS Safari backdrop-filter -->
+  <nav id="nav-menu" aria-label="Navigation principale" aria-hidden="true">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#apropos">À propos</a>
+    <a href="index.html#discographie">Discographie</a>
+    <a href="index.html#references">Références</a>
+    <a href="index.html#pass-culture">Pass Culture</a>
+    <a href="tarifs.html" class="active" aria-current="page">Tarifs</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
@@ -71,7 +80,7 @@
   </div>
 
   <!-- TARIFS -->
-  <section class="section-padded" aria-label="Tarifs détaillés">
+  <section id="tarifs-detail" class="section-padded" aria-label="Tarifs détaillés">
     <div class="section-inner">
       <div class="pricing-grid pricing-grid--page">
 
@@ -184,14 +193,20 @@
       <div class="section-label reveal">Réservation</div>
       <h2 class="reveal">Prêt à enregistrer&nbsp;?</h2>
       <p class="reveal reveal-delay-1" style="color:var(--text-muted);margin-bottom:32px;max-width:55ch;">
-        Contactez-nous directement par SMS, WhatsApp ou email pour réserver votre session.
+        Contactez-nous directement par WhatsApp, SMS ou email pour réserver votre session.
       </p>
       <div class="tarifs-contact-btns reveal reveal-delay-2">
-        <a href="tel:+33603818567" class="btn btn-primary">
+        <a href="https://wa.me/33603818567" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18">
-            <path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.8.72.7 5.8.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.33 11.33 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/>
           </svg>
-          SMS / WhatsApp
+          WhatsApp
+        </a>
+        <a href="sms:+33603818567" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18">
+            <path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 11H6V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/>
+          </svg>
+          SMS
         </a>
         <a href="mailto:maherito.engineer@gmail.com" class="btn btn-ghost">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18">
@@ -211,14 +226,21 @@
       <nav class="footer-nav" aria-label="Liens rapides">
         <a href="index.html">Accueil</a>
         <a href="index.html#apropos">À propos</a>
+        <a href="index.html#discographie">Discographie</a>
         <a href="index.html#pass-culture">Pass Culture</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="footer-social">
-        <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/insomnia.studioparis/" target="_blank" rel="noopener noreferrer" aria-label="Insomnia Studio sur Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22">
             <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
+        </a>
+        <a href="https://open.spotify.com/playlist/4GL6MmCrBtRCdP1Sv7GskD" target="_blank" rel="noopener noreferrer" aria-label="Playlist Insomnia Studio sur Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 0 1-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 1 1-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 0 1 .207.857zm1.223-2.722a.78.78 0 0 1-1.072.257C14.14 12.26 10.64 11.8 7.91 12.57a.78.78 0 0 1-.396-1.508c3.1-.814 6.953-.42 9.638 1.568a.78.78 0 0 1 .257 1.072zm.105-2.835C14.69 9.14 9.802 8.98 6.944 9.822a.937.937 0 1 1-.543-1.794c3.277-.994 8.73-.803 12.172 1.218a.937.937 0 0 1-.659 1.62z"/></svg>
+        </a>
+        <a href="https://wa.me/33603818567" target="_blank" rel="noopener noreferrer" aria-label="Contacter Insomnia Studio sur WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="20" height="20"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.8.72.7 5.8.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.33 11.33 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg>
         </a>
       </div>
       <p class="footer-copy">&copy; 2026 Insomnia Studio &mdash; Tous droits réservés</p>
@@ -229,10 +251,15 @@
   (function() {
     "use strict";
 
-    window.addEventListener("load", function() {
+    var loaderDone = false;
+    function hideLoader() {
+      if (loaderDone) return;
+      loaderDone = true;
       var loader = document.getElementById("page-loader");
-      if (loader) setTimeout(function() { loader.classList.add("hidden"); }, 400);
-    });
+      if (loader) loader.classList.add("hidden");
+    }
+    window.addEventListener("load", function() { setTimeout(hideLoader, 300); });
+    setTimeout(hideLoader, 2500);
 
     document.addEventListener("DOMContentLoaded", function() {
       /* Header scroll */
@@ -259,28 +286,28 @@
       if (menuToggle && navMenu) {
         function closeMenu() {
           menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Ouvrir le menu");
           navMenu.setAttribute("aria-hidden", "true");
           menuToggle.classList.remove("open");
           document.body.classList.remove("menu-open");
         }
+        function openMenu() {
+          menuToggle.setAttribute("aria-expanded", "true");
+          menuToggle.setAttribute("aria-label", "Fermer le menu");
+          navMenu.setAttribute("aria-hidden", "false");
+          menuToggle.classList.add("open");
+          document.body.classList.add("menu-open");
+        }
         menuToggle.addEventListener("click", function() {
-          var open = menuToggle.getAttribute("aria-expanded") === "true";
-          menuToggle.setAttribute("aria-expanded", String(!open));
-          navMenu.setAttribute("aria-hidden", String(open));
-          menuToggle.classList.toggle("open", !open);
-          document.body.classList.toggle("menu-open", !open);
+          menuToggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
         });
         navMenu.querySelectorAll("a").forEach(function(l) { l.addEventListener("click", closeMenu); });
+        document.addEventListener("click", function(e) {
+          if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) && navMenu.getAttribute("aria-hidden") === "false") closeMenu();
+        });
         document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeMenu(); });
-      }
-
-      /* Dark mode */
-      var darkToggle = document.getElementById("dark-toggle");
-      if (localStorage.getItem("theme") === "light") document.body.classList.add("light-mode");
-      if (darkToggle) {
-        darkToggle.addEventListener("click", function() {
-          document.body.classList.toggle("light-mode");
-          localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+        window.addEventListener("resize", function() {
+          if (window.innerWidth > 1100 && navMenu.getAttribute("aria-hidden") === "false") closeMenu();
         });
       }
 
